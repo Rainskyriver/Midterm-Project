@@ -6,6 +6,7 @@ $(document).ready(()=> {
 
   $('#menu-container').on('click', '.prevention',function(event) {
     event.preventDefault();
+    console.log($(this).siblings()[0]);
   });
 
 });
