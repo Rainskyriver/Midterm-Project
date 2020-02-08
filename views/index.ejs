@@ -6,6 +6,24 @@
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
     
+    <style>
+      table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+      }
+      
+      td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+      }
+      
+      tr:nth-child(even) {
+        background-color: #dddddd;
+      }
+      </style>
+
   </head>
   <body>
     <header>
@@ -14,12 +32,23 @@
         <button id="logout" type="button">Logout</button>
       </form>
     </header>
+
     <div id = "menu-container" >
-      
     </div>
 
-    <footer>
+  <div>
+    <table id="shopping-cart">
+      <tr>
+        <th>Item Name</th>
+        <th>Price</th>
+        <th>Calories</th>
+      </tr>
+    </table>
+    <button>I'm a button</button>
 
+  </div>
+
+    <footer>
     </footer>
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
