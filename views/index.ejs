@@ -28,9 +28,15 @@
   <body>
     <header>
       <h1>DacMonalds</h1>
-      <form action="/api/logout" method="POST" class="prevention">
-        <button id="logout" type="button">Logout</button>
+      <% if (!(user)) {%>
+      <form action="/api/login" method="POST">
+        <button type="submit">Login</button>
       </form>
+      <%} else {%>
+      <form action="/api/logout" method="POST">
+        <button type="submit">Logout</button>
+      </form>
+      <% } %>
     </header>
 
     <div id = "menu-container" >
