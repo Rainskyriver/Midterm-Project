@@ -7,7 +7,7 @@ $(() => {
       $("<div>").text(user.name).appendTo($("body"));
     }
   });
-  
+
    const createMenuElement = (menu) => {
     const $itemName = $('<p>')
     .text(menu.name);
@@ -20,18 +20,18 @@ $(() => {
 
     const $itemButton = $('<button>')
     .text('Buy now!')
-    
+
     const $itemForm = $('<form>')
     .addClass('item-form')
     .append($itemButton)
 
     const $itemImg = $('<img>')
     .attr('src',menu.picture)
-    
+
     const $pictureDiv = $('<div>')
     .addClass('img-form')
     .append($itemImg);
-    
+
     const $infoDiv = $('<div>')
     .append($itemName, $itemPrice, $itemCalories, $itemForm)
 
@@ -53,7 +53,7 @@ $(() => {
   const renderMenuItems = (menu) => {
      for (const item of menu['items']) {
        $('#menu-container').append(createMenuElement(item));
-     
+
      }
   }
 
