@@ -33,12 +33,16 @@ app.use(express.static("public"));
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
 const usersRoutes = require("./routes/users");
-const widgetsRoutes = require("./routes/widgets");
+const itemsRoutes = require("./routes/items");
+const ordersRoutes = require("./routes/orders");
+const order_itemsRoutes = require("./routes/order_items");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 app.use("/api/users", usersRoutes(db));
-app.use("/api/widgets", widgetsRoutes(db));
+app.use("/api/items", itemsRoutes(db));
+app.use("/api/orders", ordersRoutes(db));
+app.use("/api/order_items", order_itemsRoutes(db));
 // Note: mount other resources here, using the same pattern above
 
 
