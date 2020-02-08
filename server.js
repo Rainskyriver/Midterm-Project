@@ -10,6 +10,7 @@ const sass       = require("node-sass-middleware");
 const app        = express();
 const morgan     = require('morgan');
 const MessagingResponse = require('twilio').twiml.MessagingResponse;
+const cookie = require('cookie-session');
 
 
 // PG database client/connection setup
@@ -24,6 +25,9 @@ db.connect();
 app.use(morgan('dev'));
 
 app.set("view engine", "ejs");
+app.use(cookie({
+  name:'session',
+  keys: ['key1']}));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/styles", sass({
   src: __dirname + "/styles",
@@ -50,13 +54,13 @@ app.use("/api/order_items", order_itemsRoutes(db));
 
 
                       //
-                
+
                       //
                       app.post('/sms', (req, res) => {
                         const twiml = new MessagingResponse();
-                      
+
                         twiml.message('Your order will be ready in X minutes!');
-                      
+
                         res.writeHead(200, {'Content-Type': 'text/xml'});
                         res.end(twiml.toString());
                       });
@@ -67,7 +71,23 @@ app.use("/api/order_items", order_itemsRoutes(db));
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 app.get("/", (req, res) => {
-  res.render("index");
+  const templateVars = {
+    user: req.session.userID
+  }
+  res.render("index", templateVars);
+});
+
+app.post('/api/login', (req,res) => {
+  req.session.userID = 1;
+    const templateVars = {
+      user: req.session.userID
+    }
+  res.render("index", templateVars);
+});
+
+app.post('/api/logout', (req,res) => {
+  req.session = null;
+  res.redirect("/");
 });
 
 app.listen(PORT, () => {

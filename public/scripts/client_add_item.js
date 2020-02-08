@@ -1,9 +1,5 @@
 $(document).ready(()=> {
 
-   $('header').on('click','.prevention',function(event) {
-     event.preventDefault();
-   });
-
   $('#menu-container').on('click', '.prevention',function(event) {
     event.preventDefault();
     console.log($(this).siblings()[0]);
@@ -18,7 +14,7 @@ $(document).ready(()=> {
     .append($cartName,$cartPrice,$cartCalories);
 
     const $shoppingCart = $('#shopping-cart')
-    .append($cartItem);
+    .prepend($cartItem);
   });
 
 });

@@ -5,20 +5,20 @@
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
-    
+
     <style>
       table {
         font-family: arial, sans-serif;
         border-collapse: collapse;
         width: 100%;
       }
-      
+
       td, th {
         border: 1px solid #dddddd;
         text-align: left;
         padding: 8px;
       }
-      
+
       tr:nth-child(even) {
         background-color: #dddddd;
       }
@@ -28,9 +28,15 @@
   <body>
     <header>
       <h1>DacMonalds</h1>
-      <form action="/api/logout" method="POST" class="prevention">
-        <button id="logout" type="button">Logout</button>
+      <% if (!(user)) {%>
+      <form action="/api/login" method="POST">
+        <button type="submit">Login</button>
       </form>
+      <%} else {%>
+      <form action="/api/logout" method="POST">
+        <button type="submit">Logout</button>
+      </form>
+      <% } %>
     </header>
 
     <div id = "menu-container" >
@@ -38,11 +44,15 @@
 
   <div>
     <table id="shopping-cart">
-      <tr>
-        <th>Item Name</th>
-        <th>Price</th>
-        <th>Calories</th>
-      </tr>
+      <thead>
+        <tr>
+          <th>Item Name</th>
+          <th>Price</th>
+          <th>Calories</th>
+          <th>Quantity</th>
+        </tr>
+      </thead>
+      <tr><th>Total</th></tr>
     </table>
     <button>I'm a button</button>
 
