@@ -18,14 +18,27 @@ $(() => {
     const $itemCalories = $('<p>')
     .text(menu.calories);
 
+    const $itemButton = $('<button>')
+    .text('Buy now!')
+    
+    const $itemForm = $('<form>')
+    .addClass('item-form')
+    .append($itemButton)
+
     const $itemImg = $('<img>')
     .attr('src',menu.picture)
     
     const $pictureDiv = $('<div>')
+    .addClass('img-form')
     .append($itemImg);
+    
+    const $infoDiv = $('<div>')
+    .append($itemName, $itemPrice, $itemCalories, $itemForm)
+
 
     const $menu = $('<div>')
-    .append();
+    .addClass('menu-items')
+    .append($pictureDiv, $infoDiv);
 
 
     return $menu;
@@ -39,7 +52,6 @@ $(() => {
 
   const renderMenuItems = (menu) => {
      for (const item of menu['items']) {
-       console.log(item['calories'])
        $('#menu-container').append(createMenuElement(item));
      
      }
