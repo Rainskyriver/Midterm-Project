@@ -1,17 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <title>Home Page</title>
-
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
-
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
-  </head>
+    <script type="text/javascript" src="/scripts/client_add_item.js"></script>
+</head>
+<body>
+  <header>
+    <h1>DacMonalds</h1>
+    <form action="/api/logout" method="POST">
+      <button id="logout" type="button">Logout</button>
+    </form>
+  </header>
+  <div class="menu_holder">
+    <div class="menu item">
+      <h1 class="item name">Burg</h1>
+      <form class="addItem" action="/api/items" method="POST">
+        <button type="submit">burgbutton</button>
+      </form>
+    </div>
+  </div>
+  <footer>
 
-  <body>
-    <h1>Hello World!</h1>
-  </body>
+  </footer>
+</body>
 </html>
