@@ -19,11 +19,9 @@ $(() => {
     .text(menu.calories);
 
     const $itemButton = $('<button>')
-    .text('Buy now!')
-
-    const $itemForm = $('<form>')
-    .addClass('item-form')
-    .append($itemButton)
+    .attr('type', 'button')
+    .addClass('prevention')
+    .text('Buy now!');
 
     const $itemImg = $('<img>')
     .attr('src',menu.picture)
@@ -33,7 +31,7 @@ $(() => {
     .append($itemImg);
 
     const $infoDiv = $('<div>')
-    .append($itemName, $itemPrice, $itemCalories, $itemForm)
+    .append($itemName, $itemPrice, $itemCalories, $itemButton)
 
 
     const $menu = $('<div>')

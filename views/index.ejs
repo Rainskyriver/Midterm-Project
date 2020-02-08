@@ -10,20 +10,11 @@
   <body>
     <header>
       <h1>DacMonalds</h1>
-      <form action="/api/logout" method="POST">
+      <form action="/api/logout" method="POST" class="prevention">
         <button id="logout" type="button">Logout</button>
       </form>
     </header>
-    <div class="menu_holder">
-      <div class="menu item">
-        <h1 class="item name">Burg</h1>
-        <form class="addItem" action="/api/items" method="POST">
-          <button type="submit">burgbutton</button>
-        </form>
-      </div>
-    </div>
-
-    <div id = "menu-container">
+    <div id = "menu-container" >
       
     </div>
 
@@ -31,8 +22,22 @@
 
     </footer>
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-
     <script type="text/javascript" src="/scripts/app.js"></script>
     <script type="text/javascript" src="/scripts/client_add_item.js"></script>
 </body>
 </html>
+
+
+
+<!-- In case we are building the html stuff dynamically with Javascript and then want to add an Event Listener like "MouseEnter", then we have to use the parent element.
+
+For e.g.
+
+$('.tweet-container').on('mouseenter','.tweet',function(e){
+
+});
+
+.tweet class is used to build the element on which the mouse enter event is required.
+.tweet class is in the .tweet-container parent element.
+
+So while registering mouseenter, we need to define in the above way. -->
