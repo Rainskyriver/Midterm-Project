@@ -13,4 +13,21 @@ body {
       justify-content: flex-end;
     }
   }
+
+.menu-items {
+  border:black 2px solid;
+  margin:2vh;
+  display:flex;
+  justify-content: space-around;
+}
+.item-form {
+  display:flex;
+  flex-direction:column;
+  padding-bottom:1vh;
+}
+.img-form {
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
 }
