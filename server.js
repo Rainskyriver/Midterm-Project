@@ -1,4 +1,5 @@
 require('dotenv').config();
+const sendMessage = require('./twilio');
 
 // Web server config
 const PORT       = process.env.PORT || 8080;
@@ -8,6 +9,8 @@ const bodyParser = require("body-parser");
 const sass       = require("node-sass-middleware");
 const app        = express();
 const morgan     = require('morgan');
+const MessagingResponse = require('twilio').twiml.MessagingResponse;
+
 
 // PG database client/connection setup
 const { Pool } = require('pg');
@@ -40,6 +43,20 @@ const widgetsRoutes = require("./routes/widgets");
 app.use("/api/users", usersRoutes(db));
 app.use("/api/widgets", widgetsRoutes(db));
 // Note: mount other resources here, using the same pattern above
+
+
+                      //
+                      sendMessage()
+                      //
+                      app.post('/sms', (req, res) => {
+                        const twiml = new MessagingResponse();
+                      
+                        twiml.message('Your order will be ready in X minutes!');
+                      
+                        res.writeHead(200, {'Content-Type': 'text/xml'});
+                        res.end(twiml.toString());
+                      });
+                      //
 
 
 // Home page
