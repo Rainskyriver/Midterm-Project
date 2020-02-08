@@ -19,9 +19,12 @@ $(() => {
     .text(menu.calories);
 
     const $itemButton = $('<button>')
+    .attr('type', 'submit')
     .text('Buy now!')
 
     const $itemForm = $('<form>')
+    .attr('action', '/api/order_items')
+    .attr('method','POST')
     .addClass('item-form')
     .append($itemButton)
 
