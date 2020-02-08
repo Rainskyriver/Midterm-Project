@@ -9,9 +9,11 @@ $(document).ready(()=> {
     .text($(this).siblings()[1].innerHTML);
     const $cartCalories = $('<td>')
     .text($(this).siblings()[2].innerHTML);
+    const $cartQuantity = $('<td>')
+    .text(1);
 
     const $cartItem = $('<tr>')
-    .append($cartName,$cartPrice,$cartCalories);
+    .append($cartName,$cartPrice,$cartCalories,$cartQuantity);
 
     const $shoppingCart = $('#shopping-cart')
     .prepend($cartItem);
