@@ -19,14 +19,9 @@ $(() => {
     .text(menu.calories);
 
     const $itemButton = $('<button>')
-    .attr('type', 'submit')
-    .text('Buy now!')
-
-    const $itemForm = $('<form>')
-    .attr('action', '/api/order_items')
-    .attr('method','POST')
-    .addClass('item-form')
-    .append($itemButton)
+    .attr('type', 'button')
+    .addClass('prevention')
+    .text('Buy now!');
 
     const $itemImg = $('<img>')
     .attr('src',menu.picture)
@@ -36,7 +31,7 @@ $(() => {
     .append($itemImg);
 
     const $infoDiv = $('<div>')
-    .append($itemName, $itemPrice, $itemCalories, $itemForm)
+    .append($itemName, $itemPrice, $itemCalories, $itemButton)
 
 
     const $menu = $('<div>')
