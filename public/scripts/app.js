@@ -33,7 +33,6 @@ $(() => {
     const $infoDiv = $('<div>')
     .append($itemName, $itemPrice, $itemCalories, $itemButton)
 
-
     const $menu = $('<div>')
     .addClass('menu-items')
     .append($pictureDiv, $infoDiv);
