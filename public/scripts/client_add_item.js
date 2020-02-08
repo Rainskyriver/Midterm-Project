@@ -18,7 +18,7 @@ $(document).ready(()=> {
     .append($cartName,$cartPrice,$cartCalories);
 
     const $shoppingCart = $('#shopping-cart')
-    .append($cartItem);
+    .prepend($cartItem);
   });
 
 });
