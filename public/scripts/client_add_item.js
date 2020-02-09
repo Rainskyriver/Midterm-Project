@@ -26,8 +26,8 @@ $(document).ready(()=> {
      
   })
   
- $("#checkout-form").on('submit', () => {
+//  $("#checkout-form").on('submit', () => {
 
- })
+//  })
 
 });
