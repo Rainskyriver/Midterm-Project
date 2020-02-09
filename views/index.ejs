@@ -27,6 +27,7 @@
     </div>
 
   <div id="shopping-div">
+    <button type="button" class="hide-cart btn">v</button>
     <table id="shopping-cart">
       <thead>
         <tr>
@@ -38,7 +39,7 @@
       </thead>
       <tr><th>Total</th></tr>
     </table>
-    <form action='/api/checkout' method="POST">
+    <form action='/api/checkout' method="POST" id="checkout-form">
       <button type ="button" class="prevention checkout-button btn btn-warning" >Checkout</button>
     </form>
   </div>

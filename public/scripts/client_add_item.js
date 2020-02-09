@@ -2,7 +2,7 @@ $(document).ready(()=> {
 
   $('#menu-container').on('click', '.prevention',function(event) {
     event.preventDefault();
-    console.log($(this).siblings()[0]);
+    // console.log($(this).siblings()[0]);
     $('#shopping-div').css("visibility","visible");
     const $cartName = $('<td>')
     .text($(this).siblings()[0].innerHTML);
@@ -19,5 +19,15 @@ $(document).ready(()=> {
     const $shoppingCart = $('#shopping-cart')
     .prepend($cartItem);
   });
+
+  $('.hide-cart').on('click', ()=>{
+    event.preventDefault();
+     $('#shopping-div').css('visibility', 'hidden')
+     
+  })
+  
+ $("#checkout-form").on('submit', () => {
+
+ })
 
 });

@@ -95,10 +95,12 @@ app.post('/api/logout', (req,res) => {
 
 //shopping cart checkout button
 app.post('/api/checkout', (req , res) => {
+
   db.query(`
   INSERT INTO orders (order_time, user_id) VALUES ('2020-02-08 10:34:09 AM', 3) RETURNING *;
 `)
 .then(data => {res.json(data)});
+//sendMessage()
 res.redirect('/');
 
 })
