@@ -42,7 +42,7 @@
     <div id = "menu-container" >
     </div>
 
-  <div>
+  <div id="shopping-div">
     <table id="shopping-cart">
       <thead>
         <tr>
@@ -54,8 +54,9 @@
       </thead>
       <tr><th>Total</th></tr>
     </table>
-    <button>I'm a button</button>
-
+    <form action='/api/checkout' method="POST">
+      <button class="prevention checkout-button" >Checkout</button>
+    </form>
   </div>
 
     <footer>
@@ -63,6 +64,8 @@
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
     <script type="text/javascript" src="/scripts/client_add_item.js"></script>
+    <script type="text/javascript" src="/scripts/checkout.js"></script>
+
 </body>
 </html>
 

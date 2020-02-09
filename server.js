@@ -43,6 +43,7 @@ const usersRoutes = require("./routes/users");
 const itemsRoutes = require("./routes/items");
 const ordersRoutes = require("./routes/orders");
 const order_itemsRoutes = require("./routes/order_items");
+//const checkoutRoutes = require("./routes/checkout")
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -50,6 +51,8 @@ app.use("/api/users", usersRoutes(db));
 app.use("/api/items", itemsRoutes(db));
 app.use("/api/orders", ordersRoutes(db));
 app.use("/api/order_items", order_itemsRoutes(db));
+//app.use("/api/checkout", checkoutRoutes(db));
+
 // Note: mount other resources here, using the same pattern above
 
 
@@ -90,6 +93,16 @@ app.post('/api/logout', (req,res) => {
   res.redirect("/");
 });
 
+app.post('/api/checkout', (req , res) => {
+  db.query(`
+  INSERT INTO orders (order_time, user_id) VALUES ('2020-02-08 10:34:09 AM', 3) RETURNING *;
+`)
+.then(data => {res.json(data)});
+res.redirect('/');
+
+})
+
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });
+
