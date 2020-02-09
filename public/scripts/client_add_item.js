@@ -3,6 +3,7 @@ $(document).ready(()=> {
   $('#menu-container').on('click', '.prevention',function(event) {
     event.preventDefault();
     console.log($(this).siblings()[0]);
+    $('#shopping-div').css("visibility","visible");
     const $cartName = $('<td>')
     .text($(this).siblings()[0].innerHTML);
     const $cartPrice = $('<td>')
