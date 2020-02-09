@@ -14,11 +14,11 @@
       <h1>DacMonalds</h1>
       <% if (!(user)) {%>
       <form action="/api/login" method="POST">
-        <button type="submit">Login</button>
+        <button type="submit" class="btn btn-danger log-button">Login</button>
       </form>
       <%} else {%>
       <form action="/api/logout" method="POST">
-        <button type="submit">Logout</button>
+        <button type="submit" class="btn btn-danger log-button">Logout</button>
       </form>
       <% } %>
     </header>
@@ -41,6 +41,14 @@
     <form action='/api/checkout' method="POST">
       <button type ="button" class="prevention checkout-button btn btn-warning" >Checkout</button>
     </form>
+  </div>
+  <div>
+    <h1>Im just here so I can scroll down!</h1>
+    <h1>Im just here so I can scroll down!</h1>
+    <h1>Im just here so I can scroll down!</h1>
+    <h1>Im just here so I can scroll down!</h1>
+    <h1>Im just here so I can scroll down!</h1>
+    <h1>Im just here so I can scroll down!</h1>
   </div>
 
     <footer>

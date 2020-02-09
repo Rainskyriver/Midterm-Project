@@ -12,4 +12,20 @@ table {
 
   tr:nth-child(even) {
     background-color: #dddddd;
+  } 
+
+  #shopping-div {
+    width:52vh;
+    margin-left:2vh;
+    border: 2px solid black;
+    position:fixed;
+    top:40vh;
+    left:10vh;
+    background-color:white;
+
+  }
+  
+  #shopping-cart {
+    width:50vh;
+    margin:1vh;
   }
