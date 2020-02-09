@@ -5,24 +5,7 @@
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
-
-    <style>
-      table {
-        font-family: arial, sans-serif;
-        border-collapse: collapse;
-        width: 100%;
-      }
-
-      td, th {
-        border: 1px solid #dddddd;
-        text-align: left;
-        padding: 8px;
-      }
-
-      tr:nth-child(even) {
-        background-color: #dddddd;
-      }
-      </style>
+    <link rel="stylesheet" href="/styles/shopping-cart.css" type="text/css" />
 
   </head>
   <body>
@@ -68,18 +51,3 @@
 
 </body>
 </html>
-
-
-
-<!-- In case we are building the html stuff dynamically with Javascript and then want to add an Event Listener like "MouseEnter", then we have to use the parent element.
-
-For e.g.
-
-$('.tweet-container').on('mouseenter','.tweet',function(e){
-
-});
-
-.tweet class is used to build the element on which the mouse enter event is required.
-.tweet class is in the .tweet-container parent element.
-
-So while registering mouseenter, we need to define in the above way. -->

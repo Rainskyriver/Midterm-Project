@@ -70,9 +70,6 @@ app.use("/api/order_items", order_itemsRoutes(db));
                       //
 
 
-// Home page
-// Warning: avoid creating more routes in this file!
-// Separate them into separate routes files (see above).
 app.get("/", (req, res) => {
   const templateVars = {
     user: req.session.userID
@@ -80,6 +77,8 @@ app.get("/", (req, res) => {
   res.render("index", templateVars);
 });
 
+
+//login
 app.post('/api/login', (req,res) => {
   req.session.userID = 1;
     const templateVars = {
@@ -88,11 +87,13 @@ app.post('/api/login', (req,res) => {
   res.render("index", templateVars);
 });
 
+//logout
 app.post('/api/logout', (req,res) => {
   req.session = null;
   res.redirect("/");
 });
 
+//shopping cart checkout button
 app.post('/api/checkout', (req , res) => {
   db.query(`
   INSERT INTO orders (order_time, user_id) VALUES ('2020-02-08 10:34:09 AM', 3) RETURNING *;
@@ -100,6 +101,9 @@ app.post('/api/checkout', (req , res) => {
 .then(data => {res.json(data)});
 res.redirect('/');
 
+})
+app.get('*', (req, res) => {
+  res.redirect('/')
 })
 
 app.listen(PORT, () => {
