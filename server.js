@@ -43,6 +43,7 @@ const usersRoutes = require("./routes/users");
 const itemsRoutes = require("./routes/items");
 const ordersRoutes = require("./routes/orders");
 const order_itemsRoutes = require("./routes/order_items");
+//const checkoutRoutes = require("./routes/checkout")
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -50,6 +51,8 @@ app.use("/api/users", usersRoutes(db));
 app.use("/api/items", itemsRoutes(db));
 app.use("/api/orders", ordersRoutes(db));
 app.use("/api/order_items", order_itemsRoutes(db));
+//app.use("/api/checkout", checkoutRoutes(db));
+
 // Note: mount other resources here, using the same pattern above
 
 
@@ -67,9 +70,6 @@ app.use("/api/order_items", order_itemsRoutes(db));
                       //
 
 
-// Home page
-// Warning: avoid creating more routes in this file!
-// Separate them into separate routes files (see above).
 app.get("/", (req, res) => {
   const templateVars = {
     user: req.session.userID
@@ -77,6 +77,8 @@ app.get("/", (req, res) => {
   res.render("index", templateVars);
 });
 
+
+//login
 app.post('/api/login', (req,res) => {
   req.session.userID = 1;
     const templateVars = {
@@ -85,11 +87,29 @@ app.post('/api/login', (req,res) => {
   res.render("index", templateVars);
 });
 
+//logout
 app.post('/api/logout', (req,res) => {
   req.session = null;
   res.redirect("/");
 });
 
+//shopping cart checkout button
+app.post('/api/checkout', (req , res) => {
+
+  db.query(`
+  INSERT INTO orders (order_time, user_id) VALUES ('2020-02-08 10:34:09 AM', 3) RETURNING *;
+`)
+.then(data => {res.json(data)});
+
+//sendMessage()
+res.redirect('/');
+
+})
+app.get('*', (req, res) => {
+  res.redirect('/')
+})
+
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });
+
