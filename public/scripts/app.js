@@ -34,11 +34,6 @@ $(() => {
    }
 
 
-
-
-
-
-
   const renderMenuItems = (menu) => {
      for (const item of menu['items']) {
        $('#menu-container').append(createMenuElement(item));
