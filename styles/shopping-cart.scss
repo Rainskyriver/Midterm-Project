@@ -1,0 +1,39 @@
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  } 
+
+  #shopping-div {
+    width:52vh;
+    margin-left:2vh;
+    border: 2px solid black;
+    position:fixed;
+    top:45vh;
+    left:10vh;
+    background-color:white;
+    visibility:hidden;
+  }
+  .hide-cart {
+      border-right:1.5px solid black;
+      border-bottom:1.5px solid black;
+      padding:0;
+      height:4vh;
+      width:4vh;
+
+  }
+    
+  #shopping-cart {
+    width:50vh;
+    margin:1vh;
+  }
