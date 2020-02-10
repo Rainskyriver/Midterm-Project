@@ -93,18 +93,30 @@ app.post('/api/checkout', (req , res) => {
   var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
   var time = (today.getHours()-8) + ":" + today.getMinutes() + ":" + today.getSeconds();
   var dateTime = date+' '+time;
+
 //pass through quantity
 //pass through price, items, etc
 
+//We're trying to grab quantity from shopping-cart, and insert it into order_items. 
+//We want to include data from shopping-cart into req.body
 
   db.query(`
   INSERT INTO orders (order_time, user_id) VALUES ('${dateTime}',${req.session.userID}) RETURNING *;
 `)
 .then(data => {res.json(data)});
-  db.query()
 
-//sendMessage(phoneNumber,smsMessage)
-res.redirect('/');
+
+  // db.query(`
+  //   INSERT INTO order_items (user_id, quantity)
+  //   VALUES(${req.session.userID}, 2) RETURNING *;
+  // `)
+  // .then(data => {res.json(data)});
+
+
+
+
+//sendMessage()
+
 
 })
 app.get('*', (req, res) => {  
