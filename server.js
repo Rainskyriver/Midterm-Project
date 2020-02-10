@@ -1,5 +1,5 @@
 require('dotenv').config();
-const sendMessage = require('./twilio');
+const { sendMessage } = require('./twilio');
 
 // Web server config
 const PORT       = process.env.PORT || 8080;
@@ -52,11 +52,11 @@ app.use("/api/order_items", order_itemsRoutes(db));
 //app.use("/api/checkout", checkoutRoutes(db));
 
                       //
-
                       //
                       app.post('/sms', (req, res) => {
                         const twiml = new MessagingResponse();
                         //ADD STARTTIME/ENDTIME TO ORDERS TABLE FROM HERE.
+
                         twiml.message('Your order will be ready in X minutes!');
 
                         res.writeHead(200, {'Content-Type': 'text/xml'});
@@ -93,16 +93,12 @@ app.post('/api/checkout', (req , res) => {
   var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
   var time = (today.getHours()-8) + ":" + today.getMinutes() + ":" + today.getSeconds();
   var dateTime = date+' '+time;
-  //  console.log(req.body);
-
 //pass through quantity
 //pass through price, items, etc
-
 //We're trying to grab quantity from shopping-cart, and insert it into order_items.
 //We want to include data from shopping-cart into req.body
-const shoppingCart = req.body.shoppingCartArray
-// console.log(shoppingCart, "1");
 
+const shoppingCart = req.body.shoppingCartArray
   db.query(`
     INSERT INTO orders (order_time, user_id)
     VALUES ('${dateTime}',${req.session.userID}) RETURNING *;
@@ -116,21 +112,7 @@ const shoppingCart = req.body.shoppingCartArray
     `)
     .then(data => res.redirect('/'))
   }
-
-
-
-
-  // db.query(`
-  //   INSERT INTO order_items (user_id, quantity)
-  //   VALUES(${req.session.userID}, 2) RETURNING *;
-  // `)
-  // .then(data => {res.json(data)});
-
-
-
-
-//sendMessage()
-
+   sendMessage('2506824529', 'Hi !!');
 
 })
 app.get('*', (req, res) => {
