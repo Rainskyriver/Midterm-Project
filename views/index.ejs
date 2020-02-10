@@ -14,11 +14,11 @@
       <h1>DacMonalds</h1>
       <% if (!(user)) {%>
       <form action="/api/login" method="POST">
-        <button type="submit" class="btn btn-danger log-button">Login</button>
+        <button type="submit" class="btn btn-warning log-button">Login</button>
       </form>
       <%} else {%>
       <form action="/api/logout" method="POST">
-        <button type="submit" class="btn btn-danger log-button">Logout</button>
+        <button type="submit" class="btn btn-warning log-button">Logout</button>
       </form>
       <% } %>
     </header>
@@ -26,34 +26,34 @@
     <div id = "menu-container" >
     </div>
 
-  <div id="shopping-div">
-    <button type="button" class="hide-cart btn">v</button>
-
-    <table id="shopping-cart">
-      <thead>
-        <tr>
-          <th>Item Name</th>
-          <th>Price</th>
-          <th>Calories</th>
-          <th>Quantity</th>
-        </tr>
-      </thead>
-      <tbody id="item-body"></tbody>
-    </table>
-    <form action='/api/checkout' method="POST" id="checkout-form">
-      <button type ="button submit" class="prevention checkout-button btn btn-warning" >Checkout</button>
-    </form>
-  </div>
-  <div>
-    <h1>Im just here so I can scroll down!</h1>
-    <h1>Im just here so I can scroll down!</h1>
-    <h1>Im just here so I can scroll down!</h1>
-    <h1>Im just here so I can scroll down!</h1>
-    <h1>Im just here so I can scroll down!</h1>
-    <h1>Im just here so I can scroll down!</h1>
-  </div>
+    <div>
+      <h1>Im just here so I can scroll down!</h1>
+      <h1>Im just here so I can scroll down!</h1>
+      <h1>Im just here so I can scroll down!</h1>
+      <h1>Im just here so I can scroll down!</h1>
+      <h1>Im just here so I can scroll down!</h1>
+      <h1>Im just here so I can scroll down!</h1>
+    </div>
 
     <footer>
+      <div id="shopping-div">
+        <button type="button" class="hide-cart btn">v</button>
+
+        <table id="shopping-cart">
+          <thead>
+            <tr>
+              <th>Item Name</th>
+              <th>Price</th>
+              <th>Calories</th>
+              <th>Quantity</th>
+            </tr>
+          </thead>
+          <tbody id="item-body"></tbody>
+        </table>
+        <form action='/api/checkout' method="POST" id="checkout-form">
+          <button type ="button submit" class="prevention checkout-button btn btn-warning" >Checkout</button>
+        </form>
+      </div>
     </footer>
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>

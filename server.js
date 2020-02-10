@@ -97,7 +97,7 @@ app.post('/api/checkout', (req , res) => {
 //pass through quantity
 //pass through price, items, etc
 
-//We're trying to grab quantity from shopping-cart, and insert it into order_items. 
+//We're trying to grab quantity from shopping-cart, and insert it into order_items.
 //We want to include data from shopping-cart into req.body
 
   db.query(`
@@ -119,7 +119,7 @@ app.post('/api/checkout', (req , res) => {
 
 
 })
-app.get('*', (req, res) => {  
+app.get('*', (req, res) => {
   res.send(404)
   res.redirect('/')
 })

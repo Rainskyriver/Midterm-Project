@@ -1,4 +1,8 @@
-table {
+footer{
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
     width: 100%;
@@ -12,17 +16,14 @@ table {
 
   tr:nth-child(even) {
     background-color: #dddddd;
-  } 
+  }
 
   #shopping-div {
     width:52vh;
-    margin-left:2vh;
     border: 2px solid black;
-    position:fixed;
-    top:45vh;
-    left:10vh;
     background-color:white;
     visibility:hidden;
+    transition: all 0.5;
   }
   .hide-cart {
       border-right:1.5px solid black;
@@ -32,16 +33,17 @@ table {
       width:4vh;
 
   }
-    
+
   #shopping-cart {
     width:50vh;
     margin:1vh;
   }
   .cart-button{
-      width:1.25vw;
-      height:1.25vw;
+      width:1.25em;
+      height:1.25em;
       margin-left:0.25vw;
       padding:0;
       text-align:center;
-
+      border-color: black
   }
+}
