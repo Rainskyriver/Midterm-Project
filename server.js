@@ -104,10 +104,9 @@ const shoppingCart = req.body.shoppingCartArray
 // console.log(shoppingCart, "1");
 
   db.query(`
-    INSERT INTO orders (order_time, user_id) 
+    INSERT INTO orders (order_time, user_id)
     VALUES ('${dateTime}',${req.session.userID}) RETURNING *;
   `)
-  .then(data => {res.json(data)});
 
   for (const items of shoppingCart) {
     // console.log(items);
@@ -115,7 +114,7 @@ const shoppingCart = req.body.shoppingCartArray
       INSERT INTO order_items (user_id, item_id, order_id, quantity)
       VALUES('${req.session.userID}',(SELECT id FROM items WHERE name = '${items.name}'),(select id FROM orders ORDER BY id DESC LIMIT 1),${items.quantity} ) RETURNING *
     `)
-    .then(data => {res.json(data)})
+    .then(data => res.redirect('/'))
   }
 
 
