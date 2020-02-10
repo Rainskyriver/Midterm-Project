@@ -14,10 +14,26 @@ $(document).ready(()=> {
     showShoppingCartTable(shoppingCartArray);
   });
 
+  //hide menu
   $('.hide-cart').on('click', ()=>{
     event.preventDefault();
      $('#shopping-div').css('visibility', 'hidden')
   })
+////////////
+  $('#shopping-div').on('click','.checkout-button', (event) => {
+    event.preventDefault();
+    //loop on the back end , send an object containing shoppingcartarray
+    const shoppingObject = {
+      shoppingCartArray,
+    }
+    $.post("/api/checkout",shoppingObject, () => {
+    })
+    .done(()=> {
+      alert('success');
+    })
+
+  })
+  /////////////////
 
   const showShoppingCartTable = function(array) {
     let totalPrice = 0;
@@ -36,11 +52,17 @@ $(document).ready(()=> {
       const $itemQuantity = $('<td>')
       .addClass("quantity-column")
       .text(item.quantity);
-      const $addButton = $('<button type="button" class="btn btn-primary add-button cart-button">')
+      const $addButton = $('<button>')
+      .attr("type", "button")
+      .addClass("btn btn-primary add-button cart-button")
       .text('+');
-      const $subtractButton = $('<button type="button" class="btn btn-warning sub-button cart-button">')
+      const $subtractButton = $('<button>')
+      .attr("type", "button")
+      .addClass("btn btn-warning add-button cart-button")
       .text('-');
-      const $deleteButton = $('<button type="button" class="btn btn-danger del-button cart-button">')
+      const $deleteButton = $('<button>')
+      .attr("type", "button")
+      .addClass("btn btn-danger add-button cart-button")
       .text('x');
       const $rowItem = $('<tr>')
       .append($itemName,$itemPrice,$itemCalories,$itemQuantity,$addButton,$subtractButton,$deleteButton);
