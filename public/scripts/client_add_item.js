@@ -3,15 +3,7 @@ $(document).ready(()=> {
 
   $('#menu-container').on('click', '.prevention',function(event) {
     event.preventDefault();
-    // for (let i = 0; i < $('#shopping-cart').length; i++) {
-    //   console.log($('#shopping-cart tr').length - 2)
-    //   console.log($('.item-name').find(`${$(this).siblings()[0].innerHTML}`));
-    //   if (($(this).siblings()[0].innerHTML) === $('.item-name').text()) {
-    //     console.log($('.item-name')[i].innerHTML);
-    //   }
-    // }
-    // console.log($(this).siblings()[0]);
-    // $('#shopping-div').css("visibility","visible");
+
     const currentItemName = $(this).siblings()[0].innerHTML;
     const currentItemPrice = $(this).siblings()[1].innerHTML;
     const currentItemCalories = $(this).siblings()[2].innerHTML;
@@ -24,12 +16,8 @@ $(document).ready(()=> {
   $('.hide-cart').on('click', ()=>{
     event.preventDefault();
      $('#shopping-div').css('visibility', 'hidden')
-
   })
 
-//  $("#checkout-form").on('submit', () => {
-
-//  })
   const showShoppingCartTable = function(array) {
     let totalPrice = 0;
     const $tbody = $('#item-body');
@@ -46,8 +34,14 @@ $(document).ready(()=> {
       .text(item.calories);
       const $itemQuantity = $('<td>')
       .text(item.quantity);
+      const $addButton = $('<button type="button" class="add-button">')
+      .text('+');
+      const $subtractButton = $('<button type="button" class="sub-button">')
+      .text('-');
+      const $deleteButton = $('<button type="button" class="del-button">')
+      .text('x');
       const $rowItem = $('<tr>')
-      .append($itemName,$itemPrice,$itemCalories,$itemQuantity);
+      .append($itemName,$itemPrice,$itemCalories,$itemQuantity,$addButton,$subtractButton,$deleteButton);
       $tbody.prepend($rowItem);
     }
     const $totalData = $('<td>')
@@ -57,7 +51,12 @@ $(document).ready(()=> {
     const $totalRow = $('<tr>')
     .append($totalData,$totalPrice);
     $tbody.append($totalRow);
-    $('#shopping-div').css("visibility","visible");
+    //check if shopping cart is empty
+    if (shoppingCartArray.length > 0) {
+      $('#shopping-div').css("visibility","visible");
+    } else {
+      $('#shopping-div').css("visibility","hidden");
+    }
   };
   const addToShoppingCart = function(name, price, calories) {
     const found = shoppingCartArray.find(obj => obj.name === name);
@@ -73,4 +72,31 @@ $(document).ready(()=> {
       shoppingCartArray.push(itemObject);
     }
   }
+  // table delete item button
+  $('#shopping-div').on('click', '.del-button',function(event) {
+    event.preventDefault();
+    const itemName = $(this).siblings()[0].innerText;
+    const index = shoppingCartArray.findIndex(obj => obj.name === itemName);
+    shoppingCartArray.splice(index, 1);
+    showShoppingCartTable(shoppingCartArray);
+  });
+  //table add one quantity button
+  $('#shopping-div').on('click', '.add-button',function(event) {
+    event.preventDefault();
+    const itemName = $(this).siblings()[0].innerText;
+    const index = shoppingCartArray.findIndex(obj => obj.name === itemName);
+    shoppingCartArray[index].quantity += 1;
+    showShoppingCartTable(shoppingCartArray);
+  });
+  //table subtract one quantity button
+  $('#shopping-div').on('click', '.sub-button',function(event) {
+    event.preventDefault();
+    const itemName = $(this).siblings()[0].innerText;
+    const index = shoppingCartArray.findIndex(obj => obj.name === itemName);
+    shoppingCartArray[index].quantity -= 1;
+    if (shoppingCartArray[index].quantity < 1) {
+      shoppingCartArray.splice(index, 1);
+    }
+    showShoppingCartTable(shoppingCartArray);
+  });
 });

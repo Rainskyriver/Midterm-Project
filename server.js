@@ -106,6 +106,7 @@ res.redirect('/');
 
 })
 app.get('*', (req, res) => {
+  res.send(404)
   res.redirect('/')
 })
 
