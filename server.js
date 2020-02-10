@@ -45,23 +45,18 @@ const ordersRoutes = require("./routes/orders");
 const order_itemsRoutes = require("./routes/order_items");
 //const checkoutRoutes = require("./routes/checkout")
 
-// Mount all resource routes
-// Note: Feel free to replace the example routes below with your own
 app.use("/api/users", usersRoutes(db));
 app.use("/api/items", itemsRoutes(db));
 app.use("/api/orders", ordersRoutes(db));
 app.use("/api/order_items", order_itemsRoutes(db));
 //app.use("/api/checkout", checkoutRoutes(db));
 
-// Note: mount other resources here, using the same pattern above
-
-
                       //
 
                       //
                       app.post('/sms', (req, res) => {
                         const twiml = new MessagingResponse();
-
+                        //ADD STARTTIME/ENDTIME TO ORDERS TABLE FROM HERE.
                         twiml.message('Your order will be ready in X minutes!');
 
                         res.writeHead(200, {'Content-Type': 'text/xml'});
@@ -92,20 +87,27 @@ app.post('/api/logout', (req,res) => {
   req.session = null;
   res.redirect("/");
 });
-
 //shopping cart checkout button
 app.post('/api/checkout', (req , res) => {
+  var today = new Date();
+  var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+  var time = (today.getHours()-8) + ":" + today.getMinutes() + ":" + today.getSeconds();
+  var dateTime = date+' '+time;
+//pass through quantity
+//pass through price, items, etc
+
 
   db.query(`
-  INSERT INTO orders (order_time, user_id) VALUES ('2020-02-08 10:34:09 AM', 3) RETURNING *;
+  INSERT INTO orders (order_time, user_id) VALUES ('${dateTime}',${req.session.userID}) RETURNING *;
 `)
 .then(data => {res.json(data)});
+  db.query()
 
 //sendMessage(phoneNumber,smsMessage)
 res.redirect('/');
 
 })
-app.get('*', (req, res) => {
+app.get('*', (req, res) => {  
   res.send(404)
   res.redirect('/')
 })

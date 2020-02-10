@@ -1,4 +1,4 @@
 INSERT INTO items (price, calories, name, picture)VALUES
-(9.99, 1999, 'Big Dak', 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.foodnetwork.com%2Frecipes%2Ffood-network-kitchen%2Fsmashburger-style-burgers-3721349&psig=AOvVaw1b0SCveOdhrmzFP19FJZES&ust=1581210528378000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCJiMxLPiwOcCFQAAAAAdAAAAABAD'),
-(19.99, 1888, 'mcTriple', 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.foodnetwork.com%2Frecipes%2Ffood-network-kitchen%2Fsmashburger-style-burgers-3721349&psig=AOvVaw1b0SCveOdhrmzFP19FJZES&ust=1581210528378000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCJiMxLPiwOcCFQAAAAAdAAAAABAD'),
-(29.99, 1777, 'DakFries', 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.mcdonalds.com%2Fus%2Fen-us%2Fproduct%2Fsmall-french-fries.html&psig=AOvVaw0oh_-Oij4yDCIZecbC0Va-&ust=1581210625374000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCJj_5-DiwOcCFQAAAAAdAAAAABAD');
+(9.99, 1999, 'Big Dak', 'https://image.shutterstock.com/image-photo/small-juicy-hamburger-canapes-on-260nw-570368920.jpg'),
+(19.99, 1888, 'mcTriple', 'https://image.shutterstock.com/image-photo/small-juicy-hamburger-canapes-on-260nw-570368920.jpg'),
+(29.99, 1777, 'DakFries', 'https://image.shutterstock.com/image-photo/small-juicy-hamburger-canapes-on-260nw-570368920.jpg');

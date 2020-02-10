@@ -1,4 +1,5 @@
-let shoppingCartArray = [];
+const shoppingCartArray = [];
+
 $(document).ready(()=> {
 
   $('#menu-container').on('click', '.prevention',function(event) {
@@ -33,12 +34,13 @@ $(document).ready(()=> {
       const $itemCalories = $('<td>')
       .text(item.calories);
       const $itemQuantity = $('<td>')
+      .addClass("quantity-column")
       .text(item.quantity);
-      const $addButton = $('<button type="button" class="add-button">')
+      const $addButton = $('<button type="button" class="btn btn-primary add-button cart-button">')
       .text('+');
-      const $subtractButton = $('<button type="button" class="sub-button">')
+      const $subtractButton = $('<button type="button" class="btn btn-warning sub-button cart-button">')
       .text('-');
-      const $deleteButton = $('<button type="button" class="del-button">')
+      const $deleteButton = $('<button type="button" class="btn btn-danger del-button cart-button">')
       .text('x');
       const $rowItem = $('<tr>')
       .append($itemName,$itemPrice,$itemCalories,$itemQuantity,$addButton,$subtractButton,$deleteButton);
@@ -47,7 +49,7 @@ $(document).ready(()=> {
     const $totalData = $('<td>')
     .text('Total');
     const $totalPrice = $('<td>')
-    .text(totalPrice);
+    .text(totalPrice + "$");
     const $totalRow = $('<tr>')
     .append($totalData,$totalPrice);
     $tbody.append($totalRow);
@@ -100,3 +102,4 @@ $(document).ready(()=> {
     showShoppingCartTable(shoppingCartArray);
   });
 });
+
