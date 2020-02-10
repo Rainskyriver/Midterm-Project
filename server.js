@@ -115,7 +115,6 @@ app.post('/api/checkout', (req , res) => {
 
 
 //sendMessage()
-// res.redirect('/');
 
 })
 app.get('*', (req, res) => {  
