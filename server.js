@@ -97,7 +97,7 @@ app.post('/api/logout', (req,res) => {
 app.post('/api/checkout', (req , res) => {
 
   db.query(`
-  INSERT INTO orders (order_time, user_id) VALUES ('2020-02-08 10:34:09 AM', 3) RETURNING *;
+  INSERT INTO orders (order_time, user_id) VALUES ('2020-02-09 12:34:09 AM', 3) RETURNING *;
 `)
 .then(data => {res.json(data)});
 
@@ -105,7 +105,7 @@ app.post('/api/checkout', (req , res) => {
 res.redirect('/');
 
 })
-app.get('*', (req, res) => {
+app.get('*', (req, res) => {  
   res.send(404)
   res.redirect('/')
 })
