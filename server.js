@@ -103,7 +103,7 @@ app.post('/api/checkout', (req , res) => {
 .then(data => {res.json(data)});
   db.query()
 
-//sendMessage()
+//sendMessage(phoneNumber,smsMessage)
 res.redirect('/');
 
 })
