@@ -1,4 +1,4 @@
-const shoppingCartArray = [];
+let shoppingCartArray = [];
 
 $(document).ready(()=> {
 
@@ -23,18 +23,23 @@ $(document).ready(()=> {
   $('#shopping-div').on('click','.checkout-button', (event) => {
     event.preventDefault();
     //loop on the back end , send an object containing shoppingcartarray
+    const newArray = deepCopyArray(shoppingCartArray);
     const shoppingObject = {
-      shoppingCartArray,
+      shoppingCartArray: newArray
     }
     $.post("/api/checkout",shoppingObject, () => {
     })
     .done(()=> {
-      alert('success');
+      shoppingCartArray = [];
+      showShoppingCartTable(shoppingCartArray)
     })
 
   })
   /////////////////
-
+  //Empty array function
+  const deepCopyArray = function(array) {
+    return array.slice(0);
+  };
   const showShoppingCartTable = function(array) {
     let totalPrice = 0;
     const $tbody = $('#item-body');
