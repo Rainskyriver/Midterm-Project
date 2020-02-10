@@ -1,4 +1,5 @@
-let shoppingCartArray = [];
+const shoppingCartArray = [];
+
 $(document).ready(()=> {
 
   $('#menu-container').on('click', '.prevention',function(event) {
@@ -33,6 +34,7 @@ $(document).ready(()=> {
       const $itemCalories = $('<td>')
       .text(item.calories);
       const $itemQuantity = $('<td>')
+      .addClass("quantity-column")
       .text(item.quantity);
       const $addButton = $('<button type="button" class="btn btn-primary add-button cart-button">')
       .text('+');
@@ -100,3 +102,4 @@ $(document).ready(()=> {
     showShoppingCartTable(shoppingCartArray);
   });
 });
+
