@@ -6,9 +6,9 @@ var authToken = process.env.AUTH_TOKEN;   //  Auth Token
 var twilio = require('twilio');
 var client = new twilio(accountSid, authToken);
 
-const sendMessage = (phoneNumber) => {
+const sendMessage = (phoneNumber, smsMessage) => {
     client.messages.create({
-        body: 'Were cookin!', // "Text Message"
+        body: `${smsMessage}`, // "Text Message"
         to: `+1${phoneNumber}`,  // Text this number
         from: process.env.OFFICIAL_PHONE // TWILIO trial number
     })

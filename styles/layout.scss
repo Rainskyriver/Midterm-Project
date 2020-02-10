@@ -16,10 +16,12 @@ body {
 
 .menu-items {
   border:black 2px solid;
-  margin:2vh;
+  margin:5vh;
   display:flex;
   justify-content: space-around;
 }
+// .menu-items:hover{
+// }
 .prevention {
   display:flex;
   flex-direction:column;
@@ -40,8 +42,24 @@ body {
   color:yellow;
   font-size:1.25em;
 }
+
 .menu-items img {
   height:10em;
   width:10em;
+
+  header {
+  padding:0;
+  }
+  header form {
+  margin-right:2vw;
+  }
+
+  header h1 {
+  color:yellow;
+  font-weight:600;
+  margin-left:2vw;
+  font-size:3em;
+
+  }
 }
 }
