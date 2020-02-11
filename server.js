@@ -44,12 +44,14 @@ const usersRoutes = require("./routes/users");
 const itemsRoutes = require("./routes/items");
 const ordersRoutes = require("./routes/orders");
 const order_itemsRoutes = require("./routes/order_items");
+const track_orderRoutes = require("./routes/track_order");
 //const checkoutRoutes = require("./routes/checkout")
 
 app.use("/api/users", usersRoutes(db));
 app.use("/api/items", itemsRoutes(db));
 app.use("/api/orders", ordersRoutes(db));
 app.use("/api/order_items", order_itemsRoutes(db));
+app.use("/api/track_order", track_orderRoutes(db, textMessage));
 //app.use("/api/checkout", checkoutRoutes(db));
 
 const foodTimer = setInterval(() => {
