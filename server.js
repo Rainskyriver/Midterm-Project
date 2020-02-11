@@ -56,30 +56,38 @@ app.use("/api/track_order", track_orderRoutes(db, textMessage));
 
 //app.use("/api/checkout", checkoutRoutes(db));
 
-const foodTimer = setInterval(() => {
-  if (textMessage) {
-    console.log("I'm here")
-    //get request
-    clearInterval(foodTimer);
-    ;
-  }
-}, 1000);
+
+// const foodTimer = setInterval(() => {
+//   if (textMessage) {
+//     console.log("I'm here")
+//     clearInterval(foodTimer);
+//     ;
+//   }
+// }, 1000);
 //using a function to send json object/other to the app.js
 //websockets
 //communication between the front and the back.
 
-                      //
-                      //
-                      app.post('/sms', (req, res) => {
-                        const twiml = new MessagingResponse();
-                        //ADD STARTTIME/ENDTIME TO ORDERS TABLE FROM HERE.
-                        textMessage = req.body.Body;
+//Update start_time and end_time
+app.post('/sms', (req, res) => {
+  const twiml = new MessagingResponse();
+  //ADD STARTTIME/ENDTIME TO ORDERS TABLE FROM HERE.
+  textMessage = req.body.Body;
+  let today = new Date();
+  let start_time = `${today.getFullYear()}-${today.getMonth()+1}-${today.getDate()}T${today.getHours()-8}:${today.getMinutes()}:${today.getSeconds()}.000`;
+  let end_time = `${today.getFullYear()}-${today.getMonth()+1}-${today.getDate()}T${today.getHours()-8}:${today.getMinutes() + Number(textMessage)}:${today.getSeconds()}.000`;
 
-                        twiml.message('Server successfully received text');
+  db.query(`
+  UPDATE orders
+  SET start_time='${start_time}', end_time='${end_time}' 
+  WHERE id=(SELECT id FROM orders 
+    ORDER BY id DESC LIMIT 1)
+  `, []);
+  twiml.message('Server successfully received text');
 
-                        res.writeHead(200, {'Content-Type': 'text/xml'});
-                        res.end(twiml.toString());
-                      });
+  res.writeHead(200, {'Content-Type': 'text/xml'});
+  res.end(twiml.toString());
+});
 
 app.get("/", (req, res) => {
   const templateVars = {

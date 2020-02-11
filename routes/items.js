@@ -3,6 +3,7 @@ const router  = express.Router();
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
+    console.log(req.body);
     db.query(`SELECT * FROM items;`)
       .then(data => {
         const items = data.rows;
