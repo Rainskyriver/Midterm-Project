@@ -8,29 +8,91 @@ body {
     align-items: center;
     h1 {
       color: rgb(204, 204, 44);
+      font-family:'Righteous', 'cursive';
+      border-bottom:1px solid yellow;
     }
     #logout{
       justify-content: flex-end;
     }
   }
   #menu-container {
+    width:80vw;
+    margin-left:10vw;
+
     .prevention {
-      flex-direction:column;
-      margin-bottom:1vh;
+      // flex-direction:column;
+      // margin-bottom:2vh;
     }
-    .img-form {
-      flex-direction:column;
-      justify-content:center;
+    .menu-items img {
+      //  height:10em;
+      //  width:10em;
+
     }
     .menu-items {
       border:black 2px solid;
       margin:5vh;
-      display:flex;
-      justify-content: space-around;
+      text-align:center;
+      background-image: url("https://www.fadestreetsocial.com/wordpress/wp-content/uploads/unnamed-1.jpg");
+      // display:flex;
+      // justify-content: space-around;
+      display:grid;
+      grid-template-columns: 16.66666% 16.66666% 16.66666% 16.66666% 16.66666% 16.66666%;
+      grid-template-rows: 20% 20% 20% 20% 20%;
+      padding:2vw;
+      // padding-bottom:0;
+
+
+      .img-form {
+            // flex-direction:column;
+            // justify-content:center;
+            background-position: center center;
+
+            grid-column-start:1;
+            grid-column-end:4;
+            grid-row-start:1;
+            grid-row-end:6;
+            // border:2px solid black;
+          }
     }
   }
   // .menu-items:hover{
   // }
+.item-name {
+  grid-column-start:5;
+  grid-row-start:2;
+  font-family:'Righteous', 'Cursive';
+  font-size:2em;
+  border-bottom:1px solid white;
+  color:white;
+}
+.item-price {
+  grid-column-start:6;
+  grid-row-start:5;
+  font-family:'Righteous', 'Cursive';
+  font-size:2em;
+  color:white;
+  
+}
+.item-calories {
+  grid-column-start:4;
+  grid-row-start:4;
+  font-family:'Righteous', 'Cursive';
+  font-size:2em;
+  color:white
+}
+.item-button {
+  grid-column-start:5;
+  grid-row-start:5;
+  // margin-right:2vw;
+  // margin-bottom:2vh;
+
+
+  ;
+}
+
+
+
+
   .checkout-button {
     margin-left:1vh;
     margin-top:1vh;
@@ -42,9 +104,8 @@ body {
     font-size:1.25em;
   }
 
-  .menu-items img {
-    height:10em;
-    width:10em;
+  
+
 
     header {
     padding:0;
@@ -60,5 +121,5 @@ body {
     font-size:3em;
 
     }
-  }
+  
 }

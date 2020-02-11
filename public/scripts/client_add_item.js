@@ -5,10 +5,9 @@ $(document).ready(()=> {
   $('#menu-container').on('click', '.prevention',function(event) {
     event.preventDefault();
 
-    const currentItemName = $(this).siblings()[0].innerHTML;
-    const currentItemPrice = $(this).siblings()[1].innerHTML;
-    const currentItemCalories = $(this).siblings()[2].innerHTML;
-
+    const currentItemName = $(this).siblings()[1].innerHTML;
+    const currentItemPrice = $(this).siblings()[2].innerHTML;
+    const currentItemCalories = $(this).siblings()[3].innerHTML;
     addToShoppingCart(currentItemName,currentItemPrice,currentItemCalories);
 
     showShoppingCartTable(shoppingCartArray);
@@ -19,7 +18,7 @@ $(document).ready(()=> {
     event.preventDefault();
      $('#shopping-div').css('visibility', 'hidden')
   })
-////////////
+//minimize and reset shopping cart on checkout
   $('#shopping-div').on('click','.checkout-button', (event) => {
     event.preventDefault();
     //loop on the back end , send an object containing shoppingcartarray
@@ -35,7 +34,7 @@ $(document).ready(()=> {
     })
 
   })
-  /////////////////
+  //
   //Empty array function
   const deepCopyArray = function(array) {
     return array.slice(0);
@@ -48,7 +47,7 @@ $(document).ready(()=> {
       const item = array[i];
       totalPrice += Number(item.price) * Number(item.quantity);
       const $itemName = $('<td>')
-      .addClass('item-name')
+      // .addClass('item-name')
       .text(item.name);
       const $itemPrice = $('<td>')
       .text(item.price);
@@ -114,10 +113,13 @@ $(document).ready(()=> {
     event.preventDefault();
     const itemName = $(this).siblings()[0].innerText;
     const index = shoppingCartArray.findIndex(obj => obj.name === itemName);
+    // console.log(index,'index');
+    // console.log(shoppingCartArray[index])
     shoppingCartArray[index].quantity += 1;
     showShoppingCartTable(shoppingCartArray);
   });
   //table subtract one quantity button
+
   $('#shopping-div').on('click', '.sub-button',function(event) {
     event.preventDefault();
     const itemName = $(this).siblings()[0].innerText;
