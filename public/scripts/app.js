@@ -3,20 +3,28 @@ $(() => {
    const createMenuElement = (menu) => {
     const $itemName = $('<p>')
     .text(menu.name)
-    .addClass('item-name');
+    .addClass('item-name text-warning');
 
     const $itemPrice = $('<p>')
     .text(menu.price)
-    .addClass('item-price');
+    .addClass('item-price text-warning');
+
+    const $price = $('<p>')
+    .text('Price')
+    .addClass('price-paragraph text-warning')
 
     const $itemCalories = $('<p>')
     .text(menu.calories)
-    .addClass('item-calories');
+    .addClass('item-calories text-warning');
+
+    const $calories = $('<p>')
+    .text('Calories')
+    .addClass('calories-paragraph text-warning')
 
     const $itemButton = $('<button>')
     .attr('type', 'button')
     .addClass('prevention item-button btn btn-warning')
-    .text('Buy now!');
+    .text('Add to Cart');
 
     const $itemImg = $('<img>')
     .attr('src',menu.picture)
@@ -32,7 +40,7 @@ $(() => {
 
     const $menu = $('<div>')
     .addClass('menu-items')
-    .append($pictureDiv,$itemName, $itemPrice, $itemCalories, $itemButton);
+    .append($pictureDiv,$calories,$price,$itemName, $itemPrice, $itemCalories, $itemButton);
 
 
     return $menu;

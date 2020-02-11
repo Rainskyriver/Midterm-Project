@@ -32,7 +32,7 @@ body {
       border:black 2px solid;
       margin:5vh;
       text-align:center;
-      background-image: url("https://www.fadestreetsocial.com/wordpress/wp-content/uploads/unnamed-1.jpg");
+      background-image: url("https://www.toptal.com/designers/subtlepatterns/patterns/restaurant_icons.png");
       // display:flex;
       // justify-content: space-around;
       display:grid;
@@ -51,18 +51,25 @@ body {
             grid-column-end:4;
             grid-row-start:1;
             grid-row-end:6;
-            // border:2px solid black;
+             border:2px solid black;
           }
     }
   }
   // .menu-items:hover{
   // }
 .item-name {
-  grid-column-start:5;
-  grid-row-start:2;
+  grid-column-start:4;
+  grid-row-start:1;
+  grid-column-end: span 2;
+  grid-row-end: span 2;
+  border-bottom:2px solid #ffc107;
   font-family:'Righteous', 'Cursive';
-  font-size:2em;
-  border-bottom:1px solid white;
+  font-size:3.5em;
+  margin:0;
+  margin-left:2vw;
+  // border-bottom:1px solid white;
+  // margin:0;
+  // padding-bottom:2vh;
   color:white;
 }
 .item-price {
@@ -74,8 +81,8 @@ body {
   
 }
 .item-calories {
-  grid-column-start:4;
-  grid-row-start:4;
+  grid-column-start:6;
+  grid-row-start:2;
   font-family:'Righteous', 'Cursive';
   font-size:2em;
   color:white
@@ -90,7 +97,18 @@ body {
   ;
 }
 
-
+.price-paragraph{
+  font-family:'Righteous', 'Cursive';
+  font-size:2em;
+  grid-column-start: 6;
+  grid-row-start:4;
+}
+.calories-paragraph {
+  font-family:'Righteous', 'Cursive';
+  font-size:2em;
+  grid-column-start:6;
+  grid-row-start:1;
+}
 
 
   .checkout-button {

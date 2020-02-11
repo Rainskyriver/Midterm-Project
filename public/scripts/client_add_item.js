@@ -4,12 +4,11 @@ $(document).ready(()=> {
 
   $('#menu-container').on('click', '.prevention',function(event) {
     event.preventDefault();
-
-    const currentItemName = $(this).siblings()[1].innerHTML;
-    const currentItemPrice = $(this).siblings()[2].innerHTML;
-    const currentItemCalories = $(this).siblings()[3].innerHTML;
+    const currentItemName = $(this).siblings()[3].innerHTML;
+    const currentItemPrice = $(this).siblings()[4].innerHTML;
+    const currentItemCalories = $(this).siblings()[5].innerHTML;
     addToShoppingCart(currentItemName,currentItemPrice,currentItemCalories);
-
+    
     showShoppingCartTable(shoppingCartArray);
   });
 
@@ -21,7 +20,6 @@ $(document).ready(()=> {
 //minimize and reset shopping cart on checkout
   $('#shopping-div').on('click','.checkout-button', (event) => {
     event.preventDefault();
-    //loop on the back end , send an object containing shoppingcartarray
     const newArray = deepCopyArray(shoppingCartArray);
     const shoppingObject = {
       shoppingCartArray: newArray
@@ -97,6 +95,7 @@ $(document).ready(()=> {
         calories,
         quantity: 1
       };
+
       shoppingCartArray.push(itemObject);
     }
   }
@@ -113,8 +112,6 @@ $(document).ready(()=> {
     event.preventDefault();
     const itemName = $(this).siblings()[0].innerText;
     const index = shoppingCartArray.findIndex(obj => obj.name === itemName);
-    // console.log(index,'index');
-    // console.log(shoppingCartArray[index])
     shoppingCartArray[index].quantity += 1;
     showShoppingCartTable(shoppingCartArray);
   });
@@ -124,7 +121,6 @@ $(document).ready(()=> {
     event.preventDefault();
     const itemName = $(this).siblings()[0].innerText;
     const index = shoppingCartArray.findIndex(obj => obj.name === itemName);
-    console.log(index);
     shoppingCartArray[index].quantity -= 1;
     if (shoppingCartArray[index].quantity < 1) {
       shoppingCartArray.splice(index, 1);
