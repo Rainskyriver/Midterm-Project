@@ -5,10 +5,9 @@ $(document).ready(()=> {
   $('#menu-container').on('click', '.prevention',function(event) {
     event.preventDefault();
 
-    const currentItemName = $(this).siblings()[0].innerHTML;
-    const currentItemPrice = $(this).siblings()[1].innerHTML;
-    const currentItemCalories = $(this).siblings()[2].innerHTML;
-
+    const currentItemName = $(this).siblings()[1].innerHTML;
+    const currentItemPrice = $(this).siblings()[2].innerHTML;
+    const currentItemCalories = $(this).siblings()[3].innerHTML;
     addToShoppingCart(currentItemName,currentItemPrice,currentItemCalories);
 
     showShoppingCartTable(shoppingCartArray);
@@ -19,7 +18,7 @@ $(document).ready(()=> {
     event.preventDefault();
      $('#shopping-div').css('visibility', 'hidden')
   })
-////////////
+//minimize and reset shopping cart on checkout
   $('#shopping-div').on('click','.checkout-button', (event) => {
     event.preventDefault();
     //loop on the back end , send an object containing shoppingcartarray
@@ -35,7 +34,7 @@ $(document).ready(()=> {
     })
 
   })
-  /////////////////
+  //
   //Empty array function
   const deepCopyArray = function(array) {
     return array.slice(0);
