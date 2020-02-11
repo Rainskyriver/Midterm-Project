@@ -71,8 +71,8 @@ app.post('/sms', (req, res) => {
   //ADD STARTTIME/ENDTIME TO ORDERS TABLE FROM HERE.
   textMessage = req.body.Body;
   let today = new Date();
-  let start_time = `${today.getFullYear()}-${today.getMonth()+1}-${today.getDate()}T${today.getHours()}:${today.getMinutes()}.${today.getSeconds()}.000Z`;
-  let end_time = `${today.getFullYear()}-${today.getMonth()+1}-${today.getDate()}T${today.getHours()}:${today.getMinutes() + Number(textMessage)}.${today.getSeconds()}.000Z`;
+  let start_time = `${today.getFullYear()}-${today.getMonth()+1}-${today.getDate()}T${today.getHours()}:${today.getMinutes()}:${today.getSeconds()}.000Z`;
+  let end_time = `${today.getFullYear()}-${today.getMonth()+1}-${today.getDate()}T${today.getHours()}:${today.getMinutes() + Number(textMessage)}:${today.getSeconds()}.000Z`;
   db.query(`
   UPDATE orders
   SET start_time=$1, end_time=$2
