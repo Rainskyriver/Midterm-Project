@@ -59,6 +59,9 @@ const foodTimer = setInterval(() => {
     ;
   }
 }, 1000);
+//using a function to send json object/other to the app.js
+//websockets
+//communication between the front and the back.
 
                       //
                       //
@@ -120,7 +123,7 @@ const shoppingCart = req.body.shoppingCartArray
     `)
     .then(data => res.redirect('/'))
   }
-   sendMessage('2506824529', 'Hi !!');
+   //sendMessage('2506824529', 'Hi !!');
 
 })
 app.get('*', (req, res) => {
