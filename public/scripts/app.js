@@ -20,18 +20,19 @@ $(() => {
 
     const $itemImg = $('<img>')
     .attr('src',menu.picture)
-    .addClass('img-form');
+    // .addClass('img-form');
 
     const $pictureDiv = $('<div>')
+    .css('background-image', `url(${menu.picture})`)
     .addClass('img-form')
-    .append($itemImg);
+    // .append($itemImg);
 
     const $infoDiv = $('<div>')
     .append($itemName, $itemPrice, $itemCalories, $itemButton)
 
     const $menu = $('<div>')
     .addClass('menu-items')
-    .append($itemImg,$itemName, $itemPrice, $itemCalories, $itemButton);
+    .append($pictureDiv,$itemName, $itemPrice, $itemCalories, $itemButton);
 
 
     return $menu;
