@@ -63,11 +63,11 @@ $(document).ready(()=> {
       .text('+');
       const $subtractButton = $('<button>')
       .attr("type", "button")
-      .addClass("btn btn-warning add-button cart-button")
+      .addClass("btn btn-warning sub-button cart-button")
       .text('-');
       const $deleteButton = $('<button>')
       .attr("type", "button")
-      .addClass("btn btn-danger add-button cart-button")
+      .addClass("btn btn-danger del-button cart-button")
       .text('x');
       const $rowItem = $('<tr>')
       .append($itemName,$itemPrice,$itemCalories,$itemQuantity,$addButton,$subtractButton,$deleteButton);
@@ -122,6 +122,7 @@ $(document).ready(()=> {
     event.preventDefault();
     const itemName = $(this).siblings()[0].innerText;
     const index = shoppingCartArray.findIndex(obj => obj.name === itemName);
+    console.log(index);
     shoppingCartArray[index].quantity -= 1;
     if (shoppingCartArray[index].quantity < 1) {
       shoppingCartArray.splice(index, 1);
