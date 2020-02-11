@@ -2,21 +2,25 @@ $(() => {
 
    const createMenuElement = (menu) => {
     const $itemName = $('<p>')
-    .text(menu.name);
+    .text(menu.name)
+    .addClass('item-name');
 
     const $itemPrice = $('<p>')
-    .text(menu.price);
+    .text(menu.price)
+    .addClass('item-price');
 
     const $itemCalories = $('<p>')
-    .text(menu.calories);
+    .text(menu.calories)
+    .addClass('item-calories');
 
     const $itemButton = $('<button>')
     .attr('type', 'button')
-    .addClass('prevention')
+    .addClass('prevention item-button')
     .text('Buy now!');
 
     const $itemImg = $('<img>')
     .attr('src',menu.picture)
+    .addClass('img-form');
 
     const $pictureDiv = $('<div>')
     .addClass('img-form')
@@ -27,7 +31,7 @@ $(() => {
 
     const $menu = $('<div>')
     .addClass('menu-items')
-    .append($pictureDiv, $infoDiv);
+    .append($itemImg,$itemName, $itemPrice, $itemCalories, $itemButton);
 
 
     return $menu;
