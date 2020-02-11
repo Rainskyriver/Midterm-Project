@@ -1,5 +1,6 @@
 require('dotenv').config();
 const { sendMessage } = require('./twilio');
+let textMessage = null;
 
 // Web server config
 const PORT       = process.env.PORT || 8080;
@@ -51,19 +52,26 @@ app.use("/api/orders", ordersRoutes(db));
 app.use("/api/order_items", order_itemsRoutes(db));
 //app.use("/api/checkout", checkoutRoutes(db));
 
+const foodTimer = setInterval(() => {
+  if (textMessage) {
+    console.log("I'm here")
+    clearInterval(foodTimer);
+    ;
+  }
+}, 1000);
+
                       //
                       //
                       app.post('/sms', (req, res) => {
                         const twiml = new MessagingResponse();
                         //ADD STARTTIME/ENDTIME TO ORDERS TABLE FROM HERE.
+                        textMessage = req.body.Body;
 
-                        twiml.message('Your order will be ready in X minutes!');
+                        twiml.message('Server successfully received text');
 
                         res.writeHead(200, {'Content-Type': 'text/xml'});
                         res.end(twiml.toString());
                       });
-                      //
-
 
 app.get("/", (req, res) => {
   const templateVars = {
