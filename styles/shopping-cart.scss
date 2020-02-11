@@ -6,7 +6,7 @@ footer{
     font-family: arial, sans-serif;
     border-collapse: collapse;
 
-    
+
     width: 100%;
   }
 
@@ -18,10 +18,15 @@ footer{
 
   tr:nth-child(even) {
     background-color: #dddddd;
-  }  
-} 
+  }
+
+  #track-order {
+    width: 52vh;
+  }
+}
 
  #shopping-div {
+    display: inline-block;
     width:52vh;
     border: 2px solid black;
     background-color:white;

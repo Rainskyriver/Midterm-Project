@@ -46,10 +46,17 @@
           <button type ="button submit" class="prevention checkout-button btn btn-warning" >Checkout</button>
         </form>
       </div>
+      <div id="order_div">
+        <div id="order_message"></div>
+        <form action='/api/track_order' method="GET">
+          <button type="button submit" class="track-order-button btn btn-success">Track Order</button>
+        </form>
+      </div>
     </footer>
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
     <script type="text/javascript" src="/scripts/client_add_item.js"></script>
+    <script type="text/javascript" src="/scripts/client_track_order.js"></script>
     <!-- WHAT IS THIS FOR? confusion <script type="text/javascript" src="/scripts/checkout.js"></script> -->
 
 </body>
