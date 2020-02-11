@@ -15,7 +15,7 @@ $(() => {
 
     const $itemButton = $('<button>')
     .attr('type', 'button')
-    .addClass('prevention item-button')
+    .addClass('prevention item-button btn btn-warning')
     .text('Buy now!');
 
     const $itemImg = $('<img>')

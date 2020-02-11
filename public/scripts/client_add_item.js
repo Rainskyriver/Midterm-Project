@@ -47,7 +47,7 @@ $(document).ready(()=> {
       const item = array[i];
       totalPrice += Number(item.price) * Number(item.quantity);
       const $itemName = $('<td>')
-      .addClass('item-name')
+      // .addClass('item-name')
       .text(item.name);
       const $itemPrice = $('<td>')
       .text(item.price);
@@ -62,11 +62,11 @@ $(document).ready(()=> {
       .text('+');
       const $subtractButton = $('<button>')
       .attr("type", "button")
-      .addClass("btn btn-warning add-button cart-button")
+      .addClass("btn btn-warning sub-button cart-button")
       .text('-');
       const $deleteButton = $('<button>')
       .attr("type", "button")
-      .addClass("btn btn-danger add-button cart-button")
+      .addClass("btn btn-danger del-button cart-button")
       .text('x');
       const $rowItem = $('<tr>')
       .append($itemName,$itemPrice,$itemCalories,$itemQuantity,$addButton,$subtractButton,$deleteButton);
@@ -119,12 +119,10 @@ $(document).ready(()=> {
     showShoppingCartTable(shoppingCartArray);
   });
   //table subtract one quantity button
-  console.log(shoppingCartArray)
 
   $('#shopping-div').on('click', '.sub-button',function(event) {
     event.preventDefault();
     const itemName = $(this).siblings()[0].innerText;
-    console.log($(this).siblings());
     const index = shoppingCartArray.findIndex(obj => obj.name === itemName);
     shoppingCartArray[index].quantity -= 1;
     if (shoppingCartArray[index].quantity < 1) {

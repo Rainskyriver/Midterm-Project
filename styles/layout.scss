@@ -8,6 +8,8 @@ body {
     align-items: center;
     h1 {
       color: rgb(204, 204, 44);
+      font-family:'Righteous', 'cursive';
+      border-bottom:1px solid yellow;
     }
     #logout{
       justify-content: flex-end;
@@ -19,7 +21,7 @@ body {
 
     .prevention {
       // flex-direction:column;
-      margin-bottom:1vh;
+      margin-bottom:2vh;
     }
     .menu-items img {
       //  height:10em;
@@ -30,6 +32,7 @@ body {
       border:black 2px solid;
       margin:5vh;
       text-align:center;
+      background-image: url("https://www.fadestreetsocial.com/wordpress/wp-content/uploads/unnamed-1.jpg");
       // display:flex;
       // justify-content: space-around;
       display:grid;
@@ -52,19 +55,35 @@ body {
   // .menu-items:hover{
   // }
 .item-name {
-  grid-column-start:5;
+  grid-column-start:4;
+  font-family:'Righteous', 'Cursive';
+  font-size:2em;
+  border-bottom:1px solid white;
+  color:white;
 }
 .item-price {
   grid-column-start:6;
-  grid-row-start:4;
+  grid-row-start:5;
+  font-family:'Righteous', 'Cursive';
+  font-size:2em;
+  color:white;
+  
 }
 .item-calories {
-  grid-column-start:5;
+  grid-column-start:4;
   grid-row-start:4;
+  font-family:'Righteous', 'Cursive';
+  font-size:2em;
+  color:white
 }
 .item-button {
-  grid-column-start:6;
+  grid-column-start:5;
   grid-row-start:5;
+  margin-right:2vw;
+  margin-bottom:2vh;
+
+
+  ;
 }
 
 
