@@ -48,6 +48,7 @@ $(document).ready(()=> {
       const item = array[i];
       totalPrice += Number(item.price) * Number(item.quantity);
       const $itemName = $('<td>')
+      .addClass('item-name')
       .text(item.name);
       const $itemPrice = $('<td>')
       .text(item.price);
