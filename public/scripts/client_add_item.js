@@ -113,13 +113,18 @@ $(document).ready(()=> {
     event.preventDefault();
     const itemName = $(this).siblings()[0].innerText;
     const index = shoppingCartArray.findIndex(obj => obj.name === itemName);
+    // console.log(index,'index');
+    // console.log(shoppingCartArray[index])
     shoppingCartArray[index].quantity += 1;
     showShoppingCartTable(shoppingCartArray);
   });
   //table subtract one quantity button
+  console.log(shoppingCartArray)
+
   $('#shopping-div').on('click', '.sub-button',function(event) {
     event.preventDefault();
     const itemName = $(this).siblings()[0].innerText;
+    console.log($(this).siblings());
     const index = shoppingCartArray.findIndex(obj => obj.name === itemName);
     shoppingCartArray[index].quantity -= 1;
     if (shoppingCartArray[index].quantity < 1) {
