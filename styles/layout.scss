@@ -58,8 +58,11 @@ body {
   color:white
 }
 .item-button {
-  grid-column-start:5;
+  grid-column-start:4;
   grid-row-start:5;
+  grid-column-end: span 2;
+  margin-left:5vw;
+  margin-right:3vw;
 }
 .price-paragraph{
   font-size:2em;
