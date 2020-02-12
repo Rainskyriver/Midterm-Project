@@ -1,13 +1,16 @@
+$mcdonalds-red: rgb(233, 60, 60);
+
+
 footer{
     position:fixed;
     height:7vh;
     width:100%;
-    background-color:rgb(233, 60, 60);
+    background-color:$mcdonalds-red;
     bottom:0;
     display:grid;
     grid-template-columns: 10% 10% 10% 10% 10% 10% 10% 10% 8% 4% 8%;
 }
-.footer-button{
+#footer-cart-button{
     margin: .25vw;
     margin-bottom: 1vw;
     margin-top:5%;
@@ -16,7 +19,7 @@ footer{
     border:1.1px solid yellow;
 }
 
-#header-button {
+#footer-track-button {
     width:5vw;
     height:5vh;
     grid-column-start: 10;
@@ -28,7 +31,7 @@ footer{
     font-size:1.25em;
     color:yellow;
 }
-#header-button:hover {
+#footer-track-button:hover {
     animation: bounce 1s infinite alternate;
 }
 
