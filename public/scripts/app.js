@@ -50,14 +50,12 @@ $(() => {
   const renderMenuItems = (menu) => {
      for (const item of menu['items']) {
        $('#menu-container').append(createMenuElement(item));
-
      }
   }
 
   const loadMenu = () => {
     $.get("/api/items", (data) => {
       renderMenuItems(data);
-
-  })}
-    loadMenu();
+  })};
+  loadMenu();
 });
