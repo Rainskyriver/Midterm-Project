@@ -1,14 +1,14 @@
 $(()=> {
   $('#header-button').click(function(event) {
    event.preventDefault();
-   $("#under-nav-div").slideToggle();
+   $("#under-nav-div").slideToggle().addClass('display:inline-block');
   })
 
 
-  $('#header-track-button').click(function(event) {
-    event.preventDefault();
-    $("#under-nav-div").slideToggle();
-   })
+//   $('#header-track-button').click(function(event) {
+//     event.preventDefault();
+//     $("#under-nav-div").slideToggle();
+//    })
 
   $('#footer-button').click(function(event) {
     event.preventDefault();

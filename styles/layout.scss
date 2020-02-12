@@ -6,12 +6,13 @@ body {
     display: grid;
     background-color: rgb(233, 60, 60);
     padding: 25px;
-    grid-template-columns: 30% 10% 20% 20% 10% 10%;
+    grid-template-columns: 25% 5% 10% 20% 20% 10% 10%;
     align-items:center;
     h1 {
       color: rgb(204, 204, 44);
       font-family:'Righteous', 'cursive';
       border-bottom:1px solid yellow;
+       margin-right:1.75em;
     }
     #logout{
       justify-content: flex-end;
@@ -112,9 +113,7 @@ body {
 }
 
 
-  .checkout-button {
-    margin:1vw;
-  }
+
   .log-button {
     background-color: rgb(233, 60, 60);
     border-color:yellow;
@@ -127,15 +126,32 @@ body {
       width:5vw;
       height:5vh;
       grid-column-start: 2;
-      margin-left:2vw;
+      margin-right:4vw;
+      background-color:transparent;
+      border:0;
+      font-size:1.25em;
+      color:yellow;
     }
-    #header-track-button {
-      width:5vw;
-      height:5vh;
-      grid-column-start: 5;
-    }
+    #header-button:hover {
+      animation: bounce 1s infinite alternate;
+  }
+  
+  @keyframes bounce {
+      from {
+          transform:translateY(0px);
+      } 
+      to {
+          transform:translateY(-10px);
+          }
+  }
+
+    // #header-track-button {
+    //   width:5vw;
+    //   height:5vh;
+    //   grid-column-start: 5;
+    // }
     .logout-button-div {
-      grid-column-start: 6;
+      grid-column-start: 7;
     }
 
     header {
@@ -153,27 +169,40 @@ body {
 
     }
   #under-nav-div {
-    display:flex;
-    justify-content:space-around;
+    // display:flex;
+    // justify-content:space-around;
     margin-top:2vh;
+    margin-left: 10vw;
   }
   #order_div {
-    width:52vh;
-    height:38vh;
+    // display:none;
+
+    // width:52vh;
+    // height:38vh;
     border:2px solid black;
-    display:grid;
-    grid-template-columns: 33.33% 33.33% 33.33%;
-    grid-template-rows: 20% 20% 20% 20% 20%;
-    padding:2vw;
+    // display:grid;
+    // grid-template-columns: 20% 20% 20% 20% 20%;
+    // grid-template-rows: 20% 20% 20% 20% 20%;
+    // padding:2vw;
     // visibility:hidden;
+    width: 60vw;
+    // margin-right: 8vw;
+    padding-top:2vw;
+    height: 20vh;
   }
   #order_message {
     grid-row-start: 2;
-    grid-column-start: 1;
+    grid-column-start: 2;
     grid-column-end: span 3;
+    text-align:center;
   }
   #track-form {
-    grid-column-start: 2;
+    grid-column-start: 3;
     grid-row-start: 4;
+    text-align:center;
   }
+  // .track-order-button{
+  //   grid-column-start:3;
+  //   grid-row-start:2;
+  // }
 }

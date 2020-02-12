@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
     <link rel="stylesheet" href="/styles/shopping-cart.css" type="text/css" />
     <link rel="stylesheet" href="/styles/footer.css" type="text/css" />
+    <script src="https://kit.fontawesome.com/70e09cf890.js" crossorigin="anonymous"></script>
+
 
 
   </head>
@@ -17,9 +19,8 @@
     
       <h1>DacMonalds</h1>
      
-      <button type ="button" id="header-button"></button>
+      <button type ="button" id="header-button"><i class="fas fa-angle-double-down"></i></button>
      
-      <button type="button" id="header-track-button"></button>
     <div class="logout-button-div">
       <% if (!(user)) {%>
       <form action="/api/login" method="POST">
@@ -60,7 +61,7 @@
       <div id="order_div">
         <div id="order_message"></div>
         <form action='/api/orders' method="GET" id="track-form">
-          <button type="button submit" class="track-order-button btn btn-success">Track Order</button>
+          <button type="button submit" class="track-order-button btn btn-success">Track</button>
         </form>
       </div>
     </div>
@@ -68,7 +69,7 @@
   </div>
 
     <footer>
-      <button type="button" id="footer-button"></button>
+      <button type="button" id="footer-button" class="btn btn-danger footer-button">Cart</button>
     </footer>
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>

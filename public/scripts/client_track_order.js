@@ -24,12 +24,7 @@ $(()=> {
  ;
     let currentTime1 = new Date(currentTime)
     let readyPickup1 = new Date(readyPickup)
- console.log(currentTime);
- console.log(readyPickup);
-//     console.log(readyPickup)
-//     console.log(currentTime1, "1");
-//     console.log(readyPickup1, "2")
-//     console.log(currentTime1 > readyPickup1)
+
       if (startCook === null){
       const orderMessage = $('<p>')
       .text(`Waiting for your order to be accepted by the restaurant`);
