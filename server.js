@@ -54,7 +54,7 @@ app.post('/sms', (req, res) => {
     timezone-=1;
     readyMinutes-=60;
   }
-  let start_time = `${today.getFullYear()}-${today.getMonth()+1}-${today.getDate()}T${today.getHours()-timezone}:${today.getMinutes()}:${today.getSeconds()}.000`;
+  let start_time = `${today.getFullYear()}-${today.getMonth()+1}-${today.getDate()}T${today.getHours()-8}:${today.getMinutes()}:${today.getSeconds()}.000`;
   let end_time = `${today.getFullYear()}-${today.getMonth()+1}-${today.getDate()}T${today.getHours()-timezone}:${readyMinutes}:${today.getSeconds()}.000`;
   //ADD STARTTIME/ENDTIME TO ORDERS TABLE FROM HERE.
   db.query(`
@@ -62,8 +62,10 @@ app.post('/sms', (req, res) => {
   SET start_time='${start_time}', end_time='${end_time}'
   WHERE id=(SELECT id FROM orders
     ORDER BY id DESC LIMIT 1)
-  `, []);
-  twiml.message('Server successfully received text');
+  `);
+  twiml.message(`-
+  -------------------
+  Successfully sent order to customer!`);
   res.writeHead(200, {'Content-Type': 'text/xml'});
   res.end(twiml.toString());
 });
@@ -76,11 +78,8 @@ app.get("/", (req, res) => {
 });
 //login
 app.post('/api/login', (req,res) => {
-  req.session.userID = 1;
-    const templateVars = {
-      user: req.session.userID
-    }
-  res.render("index", templateVars);
+  req.session.userID = 3;
+  res.redirect("/");
 });
 //logout
 app.post('/api/logout', (req,res) => {
@@ -107,9 +106,20 @@ app.post('/api/checkout', (req , res) => {
     `)
     .then(data => res.redirect('/'))
   }
+  //Construct message to send to restaurant
+  let orderMessage = '';
+  let total = 0;
+  for (const item of shoppingCart) {
+    orderMessage += `${item.name}  @  ${item.quantity}  For  ${item.price * item.quantity}$\n`
+    total += item.price * item.quantity;
+  }
+  orderMessage += `Total : ${total}$`;
   //Send Message to Restaurant on Checkout
-  // sendMessage('2506824529', 'Hi !!');
-
+  sendMessage('2506824529', `-
+  New Order
+  ---------------\n${orderMessage}
+  ---------------\n
+  Please respond with how long the order will take to fulfill`);
 })
 app.get('*', (req, res) => {
   res.send(404)
