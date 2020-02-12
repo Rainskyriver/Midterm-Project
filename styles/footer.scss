@@ -1,0 +1,9 @@
+footer{
+    position:fixed;
+    height:5vh;
+    width:100%;
+    background-color:red;
+    bottom:0;
+    display:grid;
+    grid-template-columns: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
+}

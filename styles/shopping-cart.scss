@@ -23,6 +23,9 @@
  #shopping-div {
     display: inline-block;
     width:52vh;
+    position: fixed;
+    bottom:6vh;
+    left:1vw;
     border: 2px solid black;
     background-color:white;
     // visibility:hidden;
