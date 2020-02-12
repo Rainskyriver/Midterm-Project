@@ -24,10 +24,8 @@
       <% } %>
     </header>
 
-    <div id = "menu-container" >
-    </div>
-
-    <footer>
+  <div id = "menu-container" >
+      <div id = "under-nav-div">
       <div id="shopping-div">
         <button type="button" class="hide-cart btn">v</button>
 
@@ -48,10 +46,14 @@
       </div>
       <div id="order_div">
         <div id="order_message"></div>
-        <form action='/api/orders' method="GET">
+        <form action='/api/orders' method="GET" id="track-form">
           <button type="button submit" class="track-order-button btn btn-success">Track Order</button>
         </form>
       </div>
+    </div>
+  </div>
+
+    <footer>
       
     </footer>
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
