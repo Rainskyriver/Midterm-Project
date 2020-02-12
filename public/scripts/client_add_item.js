@@ -79,9 +79,9 @@ $(document).ready(()=> {
     $tbody.append($totalRow);
     //check if shopping cart is empty
     if (shoppingCartArray.length > 0) {
-      $('#shopping-div').css("visibility","visible");
+      $('#shopping-div').slideDown();
     } else {
-      $('#shopping-div').css("visibility","hidden");
+      $('#shopping-div').slideUp();
     }
     
   };
