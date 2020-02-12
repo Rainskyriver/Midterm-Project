@@ -14,11 +14,7 @@ $(document).ready(()=> {
     addToShoppingCart(currentItemName,currentItemPrice,currentItemCalories);
     showShoppingCartTable(shoppingCartArray);
   });
-  //Hide menu button
-  $('.hide-cart').on('click', ()=>{
-    event.preventDefault();
-     $('#shopping-div').css('visibility', 'hidden')
-  })
+
   //Send AJAX request
   $('#shopping-div').on('click','.checkout-button', (event) => {
     event.preventDefault();
