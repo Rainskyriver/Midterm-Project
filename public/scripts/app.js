@@ -23,6 +23,7 @@ $(() => {
 
     const $itemButton = $('<button>')
     .attr('type', 'button')
+    .attr('id', 'item-button')
     .addClass('prevention item-button btn btn-warning')
     .text('Add to Cart');
 
