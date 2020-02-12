@@ -3,11 +3,11 @@
 body {
   background-color: #EEE;
   header {
-    display: flex;
+    display: grid;
     background-color: rgb(233, 60, 60);
     padding: 25px;
-    justify-content: space-between;
-    align-items: center;
+    grid-template-columns: 30% 10% 20% 20% 10% 10%;
+    align-items:center;
     h1 {
       color: rgb(204, 204, 44);
       font-family:'Righteous', 'cursive';
@@ -125,10 +125,20 @@ body {
 
   
     #header-button {
-      width:2vw;
-      height:2vh;
+      width:5vw;
+      height:5vh;
+      grid-column-start: 2;
+      margin-left:2vw;
     }
-  
+    #header-track-button {
+      width:5vw;
+      height:5vh;
+      grid-column-start: 5;
+    }
+    .logout-button-div {
+      grid-column-start: 6;
+    }
+
     header {
     padding:0;
     }
@@ -156,6 +166,7 @@ body {
     grid-template-columns: 33.33% 33.33% 33.33%;
     grid-template-rows: 20% 20% 20% 20% 20%;
     padding:2vw;
+    // visibility:hidden;
   }
   #order_message {
     grid-row-start: 2;
