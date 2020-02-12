@@ -18,6 +18,7 @@ $(()=> {
     //CREATE new DATES FOR COMPARISON
     let currentTime1 = new Date(currentTime)
     let readyPickup1 = new Date(readyPickup)
+
       if (startCook === null || readyPickup === null){
       const orderMessage = $('<p>')
       .text(`Waiting for your order to be accepted by the restaurant`);

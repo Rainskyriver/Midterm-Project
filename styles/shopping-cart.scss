@@ -1,38 +1,36 @@
-footer{
-  position: fixed;
-  bottom: 0px;
-  left: 0px;
-  display:inline-block;
-  
-  table {
+
+  #shopping-cart {
     font-family: arial, sans-serif;
     border-collapse: collapse;
-
-
     width: 100%;
-  }
-
-  td, th {
+      td, th {
     border: 1px solid #dddddd;
     text-align: left;
     padding: 8px;
-  }
+   }
 
   tr:nth-child(even) {
     background-color: #dddddd;
-  }
+   }
 
   #track-order {
     width: 52vh;
+   }
   }
+.checkout-button{
+  margin:1vh;
 }
 
+
  #shopping-div {
-    display: inline-block;
-    width:52vh;
+    display: none;
+    width:53vh;
+    position: fixed;
+    bottom:8vh;
+    left:1vw;
     border: 2px solid black;
     background-color:white;
-    visibility:hidden;
+    // visibility:hidden;
     transition: all 0.5;
   }
   .hide-cart {
