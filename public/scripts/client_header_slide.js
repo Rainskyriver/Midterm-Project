@@ -1,7 +1,12 @@
 $(()=> {
   $('#header-button').click(function(event) {
    event.preventDefault();
-   $("#under-nav-div").slideToggle().addClass('display:inline-block');
+   $("#under-nav-div").slideToggle(()=> {
+    $("#under-nav-div").css(
+        "display" , "inline"
+        );
+   });
+
   })
 
 

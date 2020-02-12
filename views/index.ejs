@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
     <link rel="stylesheet" href="/styles/shopping-cart.css" type="text/css" />
     <link rel="stylesheet" href="/styles/footer.css" type="text/css" />
-    <script src="https://kit.fontawesome.com/70e09cf890.js" crossorigin="anonymous"></script>
+        <script src="https://kit.fontawesome.com/70e09cf890.js" crossorigin="anonymous"></script>
 
 
 
@@ -21,6 +21,7 @@
      
       <button type ="button" id="header-button"><i class="fas fa-angle-double-down"></i></button>
      
+      <button type="button" id="header-track-button"></button>
     <div class="logout-button-div">
       <% if (!(user)) {%>
       <form action="/api/login" method="POST">
@@ -70,6 +71,7 @@
 
     <footer>
       <button type="button" id="footer-button" class="btn btn-danger footer-button">Cart</button>
+      <button type ="button" id="header-button"><i class="fas fa-clocl" aria-hidden="true">::before</i></button>
     </footer>
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
