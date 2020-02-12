@@ -122,28 +122,29 @@ body {
   }
 
   
-    #header-button {
-      width:5vw;
-      height:5vh;
-      grid-column-start: 2;
-      margin-right:4vw;
-      background-color:transparent;
-      border:0;
-      font-size:1.25em;
-      color:yellow;
-    }
-    #header-button:hover {
-      animation: bounce 1s infinite alternate;
-  }
+  //   #header-button {
+  //     width:5vw;
+  //     height:5vh;
+  //     grid-column-start: 10;
+  //     // margin-right:4vw;
+  //     padding-top:1.75vh;
+  //     background-color:transparent;
+  //     border:0;
+  //     font-size:1.25em;
+  //     color:yellow;
+  //   }
+  //   #header-button:hover {
+  //     animation: bounce 1s infinite alternate;
+  // }
   
-  @keyframes bounce {
-      from {
-          transform:translateY(0px);
-      } 
-      to {
-          transform:translateY(-10px);
-          }
-  }
+  // @keyframes bounce {
+  //     from {
+  //         transform:translateY(0px);
+  //     } 
+  //     to {
+  //         transform:translateY(-10px);
+  //         }
+  // }
 
     // #header-track-button {
     //   width:5vw;
@@ -175,20 +176,24 @@ body {
     margin-left: 10vw;
   }
   #order_div {
-    display:none;
-
     // width:52vh;
     // height:38vh;
+    display:none;
     border:2px solid black;
+    padding:2vh;
+    position:fixed;
+    background-color:white;
+    bottom:8vh;
+    right:0vw;
+    width:20vw;
+    height:15vw;
     // display:grid;
     // grid-template-columns: 20% 20% 20% 20% 20%;
     // grid-template-rows: 20% 20% 20% 20% 20%;
     // padding:2vw;
     // visibility:hidden;
-    width: 60vw;
     // margin-right: 8vw;
     padding-top:2vw;
-    height: 20vh;
   }
   #order_message {
     grid-row-start: 2;
@@ -200,9 +205,12 @@ body {
     grid-column-start: 3;
     grid-row-start: 4;
     text-align:center;
+    
   }
-  // .track-order-button{
-  //   grid-column-start:3;
-  //   grid-row-start:2;
-  // }
+  .track-order-button{
+  position:absolute;
+  bottom:5vh;
+  right:7.8vw;
+
+  }
 }

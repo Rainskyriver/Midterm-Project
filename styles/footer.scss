@@ -5,7 +5,7 @@ footer{
     background-color:red;
     bottom:0;
     display:grid;
-    grid-template-columns: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
+    grid-template-columns: 10% 10% 10% 10% 10% 10% 10% 10% 8% 4% 8%;
 }
 .footer-button{
     margin: .25vw;
@@ -14,4 +14,29 @@ footer{
     border-radius:50px;
     color:yellow;
     border:1.2px solid yellow;
+}
+
+#header-button {
+    width:5vw;
+    height:5vh;
+    grid-column-start: 10;
+    // margin-right:4vw;
+    padding-top:1.75vh;
+    padding-right:1.2vw;
+    background-color:transparent;
+    border:0;
+    font-size:1.25em;
+    color:yellow;
+  }
+  #header-button:hover {
+    animation: bounce 1s infinite alternate;
+}
+
+@keyframes bounce {
+    from {
+        transform:translateY(0px);
+    } 
+    to {
+        transform:translateY(-10px);
+        }
 }
