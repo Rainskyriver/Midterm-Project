@@ -8,16 +8,14 @@ $(document).ready(()=> {
     const currentItemPrice = $(this).siblings()[4].innerHTML;
     const currentItemCalories = $(this).siblings()[5].innerHTML;
     addToShoppingCart(currentItemName,currentItemPrice,currentItemCalories);
-    
     showShoppingCartTable(shoppingCartArray);
   });
-
-  //hide menu
+  //Hide menu button
   $('.hide-cart').on('click', ()=>{
     event.preventDefault();
      $('#shopping-div').css('visibility', 'hidden')
   })
-//minimize and reset shopping cart on checkout
+  //Send AJAX request
   $('#shopping-div').on('click','.checkout-button', (event) => {
     event.preventDefault();
     const newArray = deepCopyArray(shoppingCartArray);
@@ -27,13 +25,12 @@ $(document).ready(()=> {
     $.post("/api/checkout",shoppingObject, () => {
     })
     .done(()=> {
+      //Minimize and reset shopping cart
       shoppingCartArray = [];
-      showShoppingCartTable(shoppingCartArray)
-    })
-
-  })
-  //
-  //Empty array function
+      showShoppingCartTable(shoppingCartArray);
+    });
+  });
+  //Copy array function
   const deepCopyArray = function(array) {
     return array.slice(0);
   };
@@ -45,7 +42,6 @@ $(document).ready(()=> {
       const item = array[i];
       totalPrice += Number(item.price) * Number(item.quantity);
       const $itemName = $('<td>')
-      // .addClass('item-name')
       .text(item.name);
       const $itemPrice = $('<td>')
       .text(item.price);
@@ -89,13 +85,7 @@ $(document).ready(()=> {
     if (found) {
       found.quantity += 1;
     } else {
-      const itemObject = {
-        name,
-        price,
-        calories,
-        quantity: 1
-      };
-
+      const itemObject = {name,price,calories,quantity:1};
       shoppingCartArray.push(itemObject);
     }
   }
@@ -116,7 +106,6 @@ $(document).ready(()=> {
     showShoppingCartTable(shoppingCartArray);
   });
   //table subtract one quantity button
-
   $('#shopping-div').on('click', '.sub-button',function(event) {
     event.preventDefault();
     const itemName = $(this).siblings()[0].innerText;
