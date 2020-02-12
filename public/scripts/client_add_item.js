@@ -50,18 +50,24 @@ $(document).ready(()=> {
       const $itemQuantity = $('<td>')
       .addClass("quantity-column")
       .text(item.quantity);
+      const $addIcon = $('<i>')
+      .addClass('fas fa-plus')
       const $addButton = $('<button>')
       .attr("type", "button")
-      .addClass("btn btn-primary add-button cart-button")
-      .text('+');
+      .addClass("add-button cart-button")
+      .append($addIcon);
+      const $subtractIcon = $('<i>')
+      .addClass('fas fa-minus')
       const $subtractButton = $('<button>')
       .attr("type", "button")
-      .addClass("btn btn-warning sub-button cart-button")
-      .text('-');
+      .addClass("sub-button cart-button")
+      .append($subtractIcon);
+      const $deleteIcon = $('<i>')
+      .addClass('fas fa-trash')
       const $deleteButton = $('<button>')
       .attr("type", "button")
-      .addClass("btn btn-danger del-button cart-button")
-      .text('x');
+      .addClass("del-button cart-button")
+      .append($deleteIcon);
       const $rowItem = $('<tr>')
       .append($itemName,$itemPrice,$itemCalories,$itemQuantity,$addButton,$subtractButton,$deleteButton);
       $tbody.prepend($rowItem);

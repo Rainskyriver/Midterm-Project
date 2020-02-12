@@ -1,0 +1,33 @@
+$mcdonalds-red: rgb(233, 60, 60);
+
+
+header {
+  display: grid;
+  background-color: $mcdonalds-red;
+  padding: 25px;
+  grid-template-columns: 25% 5% 10% 20% 20% 10% 10%;
+  align-items:center;
+  padding:0;
+
+    form{
+        margin-right:2vw;
+    }
+    h1 {
+      color: yellow;
+      font-family:'Righteous', 'cursive';
+      border-bottom:1px solid yellow;
+       margin-right:0.5em;
+      font-weight:600;
+      font-size:3em;
+      margin-left:1.75em;
+    }
+    .logout-button-div {
+        grid-column-start: 7;
+    }
+    .log-button {
+      background-color: $mcdonalds-red;
+      border-color:yellow;
+      color:yellow;
+      font-size:1.25em;
+    }
+  }

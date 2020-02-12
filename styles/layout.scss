@@ -1,216 +1,101 @@
-
+$font-family:'Righteous','cursive';
+$border-black:2px solid black;
+$mcdonalds-red: rgb(233, 60, 60);
 
 body {
-  background-color: #EEE;
-  header {
-    display: grid;
-    background-color: rgb(233, 60, 60);
-    padding: 25px;
-    grid-template-columns: 25% 5% 10% 20% 20% 10% 10%;
-    align-items:center;
-    h1 {
-      color: rgb(204, 204, 44);
-      font-family:'Righteous', 'cursive';
-      border-bottom:1px solid yellow;
-       margin-right:1.75em;
-    }
-    #logout{
-      justify-content: flex-end;
-    }
-  }
+  background-color: white;
+  font-size:1em;
+
   #menu-container {
     width:80vw;
     margin-left:10vw;
+    font-family:$font-family;
 
-    // .prevention {
-    //   // flex-direction:column;
-    //   // margin-bottom:2vh;
-    // }
-    // .menu-items img {
-    //   //  height:10em;
-    //   //  width:10em;
-
-    // }
     .menu-items {
       border:black 2px solid;
       margin:5vh;
       text-align:center;
       background-image: url("https://www.toptal.com/designers/subtlepatterns/patterns/restaurant_icons.png");
-      // display:flex;
-      // justify-content: space-around;
       display:grid;
       grid-template-columns: 16.66666% 16.66666% 16.66666% 16.66666% 16.66666% 16.66666%;
       grid-template-rows: 20% 20% 20% 20% 20%;
       padding:2vw;
-      // padding-bottom:0;
 
-
-      .img-form {
-          // flex-direction:column;
-          // justify-content:center;
-          background-position: center center;
-          grid-column-start:1;
-          grid-column-end:4;
-          grid-row-start:1;
-          grid-row-end:6;
-           border:2px solid black;
+    .img-form {
+      background-position: center center;
+      grid-column-start:1;
+      grid-column-end:4;
+      grid-row-start:1;
+      grid-row-end:6;
+      border:$border-black;
     }
-    }
+   }
   }
-  // .menu-items:hover{
-  // }
+
+  //Tags Within menu-items
+
 .item-name {
   grid-column-start:4;
   grid-row-start:1;
   grid-column-end: span 2;
   grid-row-end: span 2;
   border-bottom:2px solid #ffc107;
-  font-family:'Righteous', 'Cursive';
   font-size:3.5em;
   margin:0;
   margin-left:2vw;
-  // border-bottom:1px solid white;
-  // margin:0;
-  // padding-bottom:2vh;
   color:white;
 }
 .item-price {
   grid-column-start:6;
   grid-row-start:5;
-  font-family:'Righteous', 'Cursive';
   font-size:2em;
   color:white;
-  
 }
 .item-calories {
   grid-column-start:6;
   grid-row-start:2;
-  font-family:'Righteous', 'Cursive';
   font-size:2em;
   color:white
 }
 .item-button {
   grid-column-start:5;
   grid-row-start:5;
-  // margin-right:2vw;
-  // margin-bottom:2vh;
-
-
-  ;
 }
-
 .price-paragraph{
-  font-family:'Righteous', 'Cursive';
   font-size:2em;
   grid-column-start: 6;
   grid-row-start:4;
 }
 .calories-paragraph {
-  font-family:'Righteous', 'Cursive';
   font-size:2em;
   grid-column-start:6;
   grid-row-start:1;
 }
 
+//Track Order Div
 
-
-  .log-button {
-    background-color: rgb(233, 60, 60);
-    border-color:yellow;
-    color:yellow;
-    font-size:1.25em;
-  }
-
+#order_div {
+  display:none;
+  border:$border-black;
+  padding:2vh;
+  position:fixed;
+  background-color:white;
+  bottom:8vh;
+  right:0vw;
+  width:20vw;
+  height:15vw;
+  padding-top:2vw;
+}
+#order_message {
+  text-align:center;
+}
+#track-form {
+  text-align:center;
   
-  //   #header-button {
-  //     width:5vw;
-  //     height:5vh;
-  //     grid-column-start: 10;
-  //     // margin-right:4vw;
-  //     padding-top:1.75vh;
-  //     background-color:transparent;
-  //     border:0;
-  //     font-size:1.25em;
-  //     color:yellow;
-  //   }
-  //   #header-button:hover {
-  //     animation: bounce 1s infinite alternate;
-  // }
-  
-  // @keyframes bounce {
-  //     from {
-  //         transform:translateY(0px);
-  //     } 
-  //     to {
-  //         transform:translateY(-10px);
-  //         }
-  // }
-
-    // #header-track-button {
-    //   width:5vw;
-    //   height:5vh;
-    //   grid-column-start: 5;
-    // }
-    .logout-button-div {
-      grid-column-start: 7;
-    }
-
-    header {
-    padding:0;
-    }
-    header form {
-    margin-right:2vw;
-    }
-
-    header h1 {
-    color:yellow;
-    font-weight:600;
-    margin-left:2vw;
-    font-size:3em;
-
-    }
-  #under-nav-div {
-    // display:flex;
-    // justify-content:space-around;
-    margin-top:2vh;
-    margin-left: 10vw;
-  }
-  #order_div {
-    // width:52vh;
-    // height:38vh;
-    display:none;
-    border:2px solid black;
-    padding:2vh;
-    position:fixed;
-    background-color:white;
-    bottom:8vh;
-    right:0vw;
-    width:20vw;
-    height:15vw;
-    // display:grid;
-    // grid-template-columns: 20% 20% 20% 20% 20%;
-    // grid-template-rows: 20% 20% 20% 20% 20%;
-    // padding:2vw;
-    // visibility:hidden;
-    // margin-right: 8vw;
-    padding-top:2vw;
-  }
-  #order_message {
-    grid-row-start: 2;
-    grid-column-start: 2;
-    grid-column-end: span 3;
-    text-align:center;
-  }
-  #track-form {
-    grid-column-start: 3;
-    grid-row-start: 4;
-    text-align:center;
-    
-  }
-  .track-order-button{
+}
+.track-order-button{
   position:absolute;
   bottom:5vh;
   right:7.8vw;
-
-  }
+}
 }
