@@ -6,6 +6,7 @@ footer{
     width:100%;
     background: $mcdonalds-red;
     background: radial-gradient(circle, rgba(251,179,63,1) 0%, rgba(255,0,0,1) 100%);
+    background-color:$mcdonalds-red;
     bottom:0;
     display:grid;
     grid-template-columns: 10% 10% 10% 10% 10% 10% 10% 10% 8% 4% 8%;
@@ -13,12 +14,11 @@ footer{
 #footer-cart-button{
     margin: .25vw;
     margin-left: .25vw;
-    margin-bottom: 1vw;
     margin-top:5%;
     border-radius:40px;
     color:yellow;
     border:1.5px solid yellow;
-    font-size: 24px;
+    // font-size: 24px;
 }
 
 #footer-track-button {
@@ -40,3 +40,35 @@ footer{
         transform:translateY(-10px);
         }
 }
+
+@media only screen and (min-width:1500px) {
+    .track-order-button{
+        right:40%;
+    }
+}
+
+@media only screen and (max-width: 1499px) {
+    .track-order-button{
+      right: 35%;
+    }
+    #footer-cart-button{
+      font-size:12px;
+    }
+  }
+  @media only screen and (max-width: 1200px) {
+    .track-order-button{
+      right:30%;
+    }
+    #footer-cart-button{
+      font-size:12px;
+    }
+  }
+  
+  @media only screen and (max-width:1000px) {
+    .track-order-button{
+      right:25%;
+    }
+    #footer-cart-button{
+      font-size:12px;
+    }
+  }
