@@ -96,30 +96,10 @@ body {
   
 }
 .track-order-button{
-  // position:absolute;
-  // bottom:5vh;
-  // right:7.8vw;
   bottom:5vh;
-  // margin-top:5vh;
 }
 }
 
-
-// @media only screen and (min-width: 1301px){
-//   .menu-items{
-//     display:grid;
-//     grid-template-columns: 16.66666% 16.66666% 16.66666% 16.66666% 16.66666% 16.66666%;
-//     grid-template-rows: 20% 20% 20% 20% 20%;
-//   }
-//   .img-form {
-//     background-position: center center;
-//     grid-column-start:1;
-//     grid-column-end:4;
-//     grid-row-start:1;
-//     grid-row-end:6;
-//     border:$border-black;
-//   }
-// };
 
 @media only screen and (min-width:1201px) {
   .item-calories {
