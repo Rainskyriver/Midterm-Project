@@ -3,9 +3,9 @@ $mcdonalds-red: rgb(233, 60, 60);
 
 footer{
     position:fixed;
-    // height:7vh;
     width:100%;
-    background-color:$mcdonalds-red;
+    background: rgb(251,179,63);
+    background: radial-gradient(circle, rgba(251,179,63,1) 0%, rgba(255,0,0,1) 100%);
     bottom:0;
     display:grid;
     grid-template-columns: 10% 10% 10% 10% 10% 10% 10% 10% 8% 4% 8%;
@@ -23,7 +23,6 @@ footer{
 
 #footer-track-button {
     grid-column-start: 10;
-    // padding-right:1.2vw;
     background-color:transparent;
     border:0;
     font-size:1.25em;
@@ -41,10 +40,3 @@ footer{
         transform:translateY(-10px);
         }
 }
-
-// @media only screen and (min-width: 1000px) {
-//     footer{
-//         height:7vh;
-//     }
-
-//   }

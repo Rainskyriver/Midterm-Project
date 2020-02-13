@@ -3,7 +3,6 @@ $mcdonalds-red: rgb(233, 60, 60);
 
 header {
   display: grid;
-  // padding: 25px;
   background-image:url(https://marketplace.canva.com/MAC58TcxxXA/1/screen_2x/canva-composition-with-assorted-organic-food-products-on-the-table-MAC58TcxxXA.jpg);
   grid-template-columns: 20% 20% 20% 20% 20%;
   grid-template-rows: 20% 20% 20% 20% 20%;
@@ -19,14 +18,11 @@ header {
     h1 {
       color: yellow;
       font-family:'Righteous', 'cursive';
-      // border-bottom:1px solid yellow;
-      //  margin-right:0.5em;
       font-weight:600;
       font-size:5em;
       grid-column-start: 2;
       grid-row-start: 3;
       text-shadow:4px 4px black;
-      // margin-left:1.75em;
     }
     .logout-button-div {
         grid-column-start: 5;
