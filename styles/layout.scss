@@ -81,10 +81,11 @@ body {
 #order_div {
   display:none;
   border:$border-black;
+  border-radius:10px;
   padding:1vw;
   position:fixed;
   background-color:white;
-  bottom:7.5vh;
+  bottom:75px;
   right:1vw;
   width:20vw;
   height:15vh;
@@ -93,10 +94,9 @@ body {
   text-align:center;
 }
 .track-order-button{
-  // position:absolute;
-  // bottom:5vh;
-  // right:7.8vw;
-  float: right;
+  position:absolute;
+  bottom:5px;
+  right:30%;
   // margin-top:5vh;
 }
 }

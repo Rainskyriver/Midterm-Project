@@ -3,9 +3,13 @@ $mcdonalds-red: rgb(233, 60, 60);
 
 header {
   display: grid;
-  background-color: $mcdonalds-red;
-  padding: 25px;
-  grid-template-columns: 25% 5% 10% 20% 20% 10% 10%;
+  // padding: 25px;
+  background-image:url(https://marketplace.canva.com/MAC58TcxxXA/1/screen_2x/canva-composition-with-assorted-organic-food-products-on-the-table-MAC58TcxxXA.jpg);
+  grid-template-columns: 20% 20% 20% 20% 20%;
+  grid-template-rows: 20% 20% 20% 20% 20%;
+  background-size:cover;
+  background-position:center center;
+  height:300px;
   align-items:center;
   padding:0;
 
@@ -15,14 +19,17 @@ header {
     h1 {
       color: yellow;
       font-family:'Righteous', 'cursive';
-      border-bottom:1px solid yellow;
-       margin-right:0.5em;
+      // border-bottom:1px solid yellow;
+      //  margin-right:0.5em;
       font-weight:600;
-      font-size:3em;
-      margin-left:1.75em;
+      font-size:5em;
+      grid-column-start: 2;
+      grid-row-start: 3;
+      text-shadow:4px 4px black;
+      // margin-left:1.75em;
     }
     .logout-button-div {
-        grid-column-start: 7;
+        grid-column-start: 5;
     }
     .log-button {
       background-color: $mcdonalds-red;
