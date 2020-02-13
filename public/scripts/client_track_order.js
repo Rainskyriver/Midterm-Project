@@ -1,88 +1,49 @@
 $(()=> {
   let order = '';
-  let today = new Date();
-  console.log(today);
-  let currentTime = `${today.getFullYear()}-0${today.getMonth()+1}-${today.getDate()}T${today.getHours()}:${today.getMinutes()}:${today.getSeconds()}.000UTC`;
-  console.log(currentTime, 'top')
+  // let today = new Date();
+  // let currentTime = `${today.getFullYear()}-0${today.getMonth()+1}-${today.getDate()}T${today.getHours()}:${today.getMinutes()}:${today.getSeconds()}.000`;
 
   $('#order_div').on('click', '.track-order-button', event => {
     event.preventDefault();
-    
+
+  let today = new Date();
+  let currentTime = `${today.getFullYear()}-0${today.getMonth()+1}-${today.getDate()}T${today.getHours()}:${today.getMinutes()}:${today.getSeconds()}.000Z`;
+
+
     $.get('/api/orders', (data) => {
-      console.log(data.orders, "data")
       latestOrder = data.orders[data.orders.length - 1];
       const startTime = latestOrder.start_time;
       const endTime = latestOrder.end_time;
-      console.log(latestOrder.end_time, 'orders');
-
+      const active = latestOrder.active;
       
-      drawOrderStatus(startTime, endTime);
+      drawOrderStatus(startTime, endTime, currentTime, active);
     })
   });
 
-
-  // $('#footer-track-button').click(function(event) {
-  //   event.preventDefault();
-  //   $.get('/api/active', (data) => {
-  //    let state = data[0].active
-  //    let start_time = data[0].start_time;
-  //    let end_time = data[0].end_time;
-  //    const $order_message = $('#order_message').empty();
-
-
-  //   //  (currentTime1 >= readyPickup1)
-  //    if (start_time === null || end_time === null) {
-
-  //     const orderMessage = $('<p>')
-  //     .text(`Waiting yousirfor your order to be accepted by the restaurant`);
-  //     $order_message.prepend(orderMessage);
-
-  //     //you have no orders
-  //    } else if (currentTime > end_time) {
-  //      // post (query insert active is now false)
-
-  //    } else if (state) {
-  //     //you have an order that is not ready
-  //    }
-  //   })
- 
-  //   $("#order_div").slideToggle();
- 
- 
-  //  })
-
-
-
-  const drawOrderStatus = function(startCook, readyPickup) {
-    // let today = new Date();
-    // let currentTime = `${today.getFullYear()}-0${today.getMonth()+1}-${today.getDate()}T${today.getHours()}:${today.getMinutes()}:${today.getSeconds()}.000Z`;
+  const drawOrderStatus = function(startCook, readyPickup, currentTime, active) {
     const $order_message = $('#order_message').empty();
     const orderTime = getHourMinutes(startCook);
     const orderStatus = getHourMinutes(readyPickup);
     //CREATE new DATES FOR COMPARISON
-    console.log(currentTime)
 
     let readyPickup1 = new Date(readyPickup)
-    console.log(readyPickup, "bot", readyPickup1)
-
-    console.log(readyPickup1)    
-    console.log(currentTime)    
-
- console.log(currentTime > readyPickup)    
-
+      console.log(currentTime)
+  console.log(readyPickup)
       if (startCook === null || readyPickup === null){
       const orderMessage = $('<p>')
       .text(`Waiting for your order to be accepted by the restaurant`);
       $order_message.prepend(orderMessage);
 
-    } else if (currentTime >= readyPickup) {
+    } else if (currentTime > readyPickup) {
       const orderMessage = $('<p>')
       .text('Your order is ready for pickup!');
       $order_message.prepend(orderMessage);
 //
-      $.post('/api/deactivate')
+      $.post('/api/deactivate', (req, res) => {
+        console.log('hi');
+      })
 //
-    } else if (orderStatus) {
+    } else if (active) {
       const orderedAt = $('<p>')
       .text(`We started prep at ${orderTime}`)
       const orderMessage = $('<p>')

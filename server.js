@@ -54,8 +54,8 @@ app.post('/sms', (req, res) => {
     timezone-=1;
     readyMinutes-=60;
   }
-  let start_time = `${today.getFullYear()}-${today.getMonth()+1}-${today.getDate()}T${today.getHours()-8}:${today.getMinutes()}:${today.getSeconds()}.000UTC`;
-  let end_time = `${today.getFullYear()}-${today.getMonth()+1}-${today.getDate()}T${today.getHours()-timezone}:${readyMinutes}:${today.getSeconds()}.000UTC`;
+  let start_time = `${today.getFullYear()}-${today.getMonth()+1}-${today.getDate()}T${today.getHours()-8}:${today.getMinutes()}:${today.getSeconds()}.000Z`;
+  let end_time = `${today.getFullYear()}-${today.getMonth()+1}-${today.getDate()}T${today.getHours()-timezone}:${readyMinutes}:${today.getSeconds()}.000Z`;
   //ADD STARTTIME/ENDTIME TO ORDERS TABLE FROM HERE.
   db.query(`
   UPDATE orders
@@ -93,11 +93,10 @@ app.post('/api/checkout', (req , res) => {
   var time = (today.getHours()) + ":" + today.getMinutes() + ":" + today.getSeconds();
   var dateTime = date+' '+time;
   //ADD NEW ORDER
-  console.log(dateTime)
   const shoppingCart = req.body.shoppingCartArray
   db.query(`
-    INSERT INTO orders (order_time, user_id)
-    VALUES ('${dateTime}',${req.session.userID}) RETURNING *;
+    INSERT INTO orders (order_time, user_id,active)
+    VALUES ('${dateTime}',${req.session.userID},'true') RETURNING *;
   `)
 
   for (const items of shoppingCart) {
@@ -122,6 +121,13 @@ app.post('/api/checkout', (req , res) => {
   ---------------\n
   Please respond with how long the order will take to fulfill`);
 })
+
+app.post('/api/deactivate', (req, res) => {
+  db.query(`
+    UPDATE orders SET active = 'false';
+  `)
+})
+
 app.get('*', (req, res) => {
   res.send(404)
   res.redirect('/')
