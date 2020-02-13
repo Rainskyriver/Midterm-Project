@@ -40,7 +40,6 @@ body {
   grid-column-end: span 2;
   grid-row-end: span 2;
   border-bottom:2px solid #ffc107;
-  font-size:3.5em;
   margin:0;
   margin-left:2vw;
   color:white;
@@ -122,8 +121,47 @@ body {
 //   }
 // };
 
+@media only screen and (min-width:1201px) {
+  .item-calories {
+    grid-column-start:6;
+    grid-row-start:2;
+    font-size:2em;
+    color:white
+  }
+  .calories-paragraph {
+    font-size:2em;
+    grid-column-start:6;
+    grid-row-start:1;
+  }
+  .item-name{
+  font-size:3.5em;
+  }
+  .logout-button-div{
+    grid-column-start: 7;
 
-// @media only screen and (max-width: 1300px) {
+  }
+}
+@media only screen and (max-width: 1200px) {
+  .item-calories {
+    grid-column-start:6;
+    grid-row-start:2;
+    font-size:2em;
+    color:white;
+    visibility:hidden;
+  }
+  .calories-paragraph{
+    font-size:2em;
+    grid-column-start:6;
+    grid-row-start:1;
+    visibility:hidden;
+  }
+  .item-name{
+    font-size: 2.75em;
+  }
+  .logout-button-div{
+    grid-column-start: 6;
+  }
+}
 
 //   .menu-items{
 //     display:grid;
