@@ -1,7 +1,13 @@
 $(()=> {
   $('#footer-track-button').click(function(event) {
    event.preventDefault();
-   $("#order_div").slideToggle();
+   $("#order_div").slideToggle({
+     start: function() {
+       $(this).css({
+         display: 'flex'
+       })
+     }
+   });
 
   })
 
@@ -9,6 +15,6 @@ $(()=> {
     event.preventDefault();
     $("#shopping-div").slideToggle();
    })
-}) 
+})
 
 

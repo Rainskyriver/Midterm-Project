@@ -83,6 +83,7 @@ body {
 
 #order_div {
   display:none;
+  flex-direction: column;
   border:$border-black;
   border-radius:10px;
   padding:1vw;
@@ -92,6 +93,7 @@ body {
   right:1vw;
   width:20vw;
   height:15vh;
+  align-items: center;
 }
 #order_message {
   text-align:center;
@@ -100,6 +102,5 @@ body {
   position:absolute;
   bottom:5px;
   right:30%;
-  // margin-top:5vh;
 }
 }
