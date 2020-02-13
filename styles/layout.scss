@@ -1,7 +1,10 @@
 $font-family:'Righteous','cursive';
 $border-black:2px solid black;
 $mcdonalds-red: rgb(233, 60, 60);
-
+::-webkit-scrollbar {
+  overflow: hidden;
+  display: none;
+}
 body {
   background-color: white;
   font-size:1em;
