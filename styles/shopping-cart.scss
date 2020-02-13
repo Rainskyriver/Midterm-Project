@@ -1,8 +1,6 @@
-
 #shopping-cart {
   font-family: arial, sans-serif;
   border-collapse: collapse;
-  width: 100%;
   td, th {
   border: 1px solid #dddddd;
   text-align: left;
@@ -22,7 +20,7 @@
 }
  #shopping-div {
   display: none;
-  width:53vh;
+  width:52vw;
   position: fixed;
   bottom:8vh;
   left:1vw;
@@ -43,7 +41,7 @@
 }
 
 #shopping-cart {
-  width:50vh;
+  width:50vw;
   // margin:1vh;
   margin-left:1vw;
   margin-top:1vh;

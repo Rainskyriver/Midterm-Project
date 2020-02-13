@@ -7,8 +7,9 @@ body {
   font-size:1em;
 
   #menu-container {
-    width:80vw;
-    margin-left:10vw;
+    width:90%;
+    margin: auto;
+    padding-bottom: 50px;
     font-family:$font-family;
 
     .menu-items {
@@ -19,7 +20,7 @@ body {
       display:grid;
       grid-template-columns: 16.66666% 16.66666% 16.66666% 16.66666% 16.66666% 16.66666%;
       grid-template-rows: 20% 20% 20% 20% 20%;
-      padding:2vw;
+      padding:1vw;
 
     .img-form {
       background-position: center center;
@@ -38,9 +39,9 @@ body {
   grid-column-start:4;
   grid-row-start:1;
   grid-column-end: span 2;
-  grid-row-end: span 2;
+  grid-row-end: span 1;
   border-bottom:2px solid #ffc107;
-  font-size:3.5em;
+  font-size:2.5em;
   margin:0;
   margin-left:2vw;
   color:white;
@@ -54,7 +55,7 @@ body {
 .item-calories {
   grid-column-start:6;
   grid-row-start:2;
-  font-size:2em;
+  font-size:1.5em;
   color:white
 }
 .item-button {
@@ -70,7 +71,7 @@ body {
   grid-row-start:4;
 }
 .calories-paragraph {
-  font-size:2em;
+  font-size:1.5em;
   grid-column-start:6;
   grid-row-start:1;
 }
@@ -80,27 +81,22 @@ body {
 #order_div {
   display:none;
   border:$border-black;
-  padding:2vh;
+  padding:1vw;
   position:fixed;
   background-color:white;
-  bottom:8vh;
-  right:0vw;
+  bottom:7.5vh;
+  right:1vw;
   width:20vw;
-  height:15vw;
-  padding-top:2vw;
+  height:15vh;
 }
 #order_message {
   text-align:center;
-}
-#track-form {
-  text-align:center;
-  
 }
 .track-order-button{
   // position:absolute;
   // bottom:5vh;
   // right:7.8vw;
-  bottom:5vh;
+  float: right;
   // margin-top:5vh;
 }
 }
