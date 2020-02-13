@@ -48,18 +48,18 @@ app.post('/sms', (req, res) => {
   textMessage = req.body.Body;
   //CREATE NEW DATES && CHECK FOR >59 to rollover hours
   let today = new Date();
-  let timezone = 8;
+  let timezone = 0;
   let readyMinutes = today.getMinutes() + Number(textMessage);
   if (readyMinutes > 59) {
-    timezone-=1;
+    timezone+=1;
     readyMinutes-=60;
   }
-  let start_time = `${today.getFullYear()}-${today.getMonth()+1}-${today.getDate()}T${today.getHours()-8}:${today.getMinutes()}:${today.getSeconds()}.000`;
-  let end_time = `${today.getFullYear()}-${today.getMonth()+1}-${today.getDate()}T${today.getHours()-timezone}:${readyMinutes}:${today.getSeconds()}.000`;
+  let start_time = `${today.getFullYear()}-${today.getMonth()+1}-${today.getDate()}T${today.getHours()}:${today.getMinutes()}:${today.getSeconds()}`;
+  let end_time = `${today.getFullYear()}-${today.getMonth()+1}-${today.getDate()}T${today.getHours()+timezone}:${readyMinutes}:${today.getSeconds()}`;
   //ADD STARTTIME/ENDTIME TO ORDERS TABLE FROM HERE.
   db.query(`
   UPDATE orders
-  SET start_time='${start_time}', end_time='${end_time}'
+  SET start_time='${start_time} UTC', end_time='${end_time} UTC'
   WHERE id=(SELECT id FROM orders
     ORDER BY id DESC LIMIT 1)
   `);
@@ -88,10 +88,10 @@ app.post('/api/logout', (req,res) => {
 });
 //shopping cart checkout button
 app.post('/api/checkout', (req , res) => {
-  var today = new Date();
-  var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-  var time = (today.getHours()-8) + ":" + today.getMinutes() + ":" + today.getSeconds();
-  var dateTime = date+' '+time;
+  let today = new Date();
+  let date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+  let time = (today.getHours()) + ":" + today.getMinutes() + ":" + today.getSeconds();
+  let dateTime = date+' '+time + ' UTC';
   //ADD NEW ORDER
   const shoppingCart = req.body.shoppingCartArray
   db.query(`
@@ -115,11 +115,11 @@ app.post('/api/checkout', (req , res) => {
   }
   orderMessage += `Total : ${total}$`;
   //Send Message to Restaurant on Checkout
-  sendMessage('2506824529', `-
-  New Order
-  ---------------\n${orderMessage}
-  ---------------\n
-  Please respond with how long the order will take to fulfill`);
+  // sendMessage('2506824529', `-
+  // New Order
+  // ---------------\n${orderMessage}
+  // ---------------\n
+  // Please respond with how long the order will take to fulfill`);
 })
 app.get('*', (req, res) => {
   res.send(404)
@@ -128,4 +128,3 @@ app.get('*', (req, res) => {
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });
-

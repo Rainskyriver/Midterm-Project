@@ -17,11 +17,11 @@
   </head>
   <body>
    <header>
-    
+
       <h1>DacMonalds</h1>
-     
+
       <!-- <button type ="button" id="header-button"><i class="fas fa-angle-double-down"></i></button>
-     
+
       <button type="button" id="header-track-button"></button> -->
     <div class="logout-button-div">
       <% if (!(user)) {%>
@@ -34,12 +34,12 @@
       </form>
     </div>
       <% } %>
-      
+
     </header>
 
   <div id = "menu-container" >
-   
-   
+
+
       <div id="shopping-div">
         <!-- <button type="button" class="hide-cart btn">v</button> -->
 
@@ -55,7 +55,7 @@
           <tbody id="item-body"></tbody>
         </table>
         <form action='/api/checkout' method="POST" id="checkout-form">
-          <button type ="button submit" class="prevention checkout-button btn btn-warning" >Checkout</button>
+          <button type ="button submit" class="checkout-button btn btn-warning" >Checkout</button>
         </form>
       </div>
 

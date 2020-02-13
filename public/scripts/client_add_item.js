@@ -7,7 +7,6 @@ $(document).ready(()=> {
     event.preventDefault();
     $('#shopping-div').slideDown();
 
-    
     const currentItemName = $(this).siblings()[3].innerHTML;
     const currentItemPrice = $(this).siblings()[4].innerHTML;
     const currentItemCalories = $(this).siblings()[5].innerHTML;
@@ -85,7 +84,7 @@ $(document).ready(()=> {
     } else {
       $('#shopping-div').slideUp();
     }
-    
+
   };
   const addToShoppingCart = function(name, price, calories) {
     const found = shoppingCartArray.find(obj => obj.name === name);

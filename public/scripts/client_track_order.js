@@ -11,19 +11,24 @@ $(()=> {
   });
   const drawOrderStatus = function(startCook, readyPickup) {
     let today = new Date();
-    let currentTime = `${today.getFullYear()}-0${today.getMonth()+1}-${today.getDate()}T${today.getHours()}:${today.getMinutes()}:${today.getSeconds()}.000Z`;
+    //Conditionals for the minutes and seconds
+    let fMin = '';
+    let fSec = '';
+    today.getMinutes() < 10 ? fMin = '0' : fMin = '';
+    today.getSeconds() < 10 ? fSec = '0' : fSec = '';
+
+    let currentTime = `${today.getFullYear()}-0${today.getMonth()+1}-${today.getDate()}T${today.getHours()}:${fMin}${today.getMinutes()}:${fSec}${today.getSeconds()}.000Z`;
     const $order_message = $('#order_message').empty();
     const orderTime = getHourMinutes(startCook);
     const orderStatus = getHourMinutes(readyPickup);
     //CREATE new DATES FOR COMPARISON
     let currentTime1 = new Date(currentTime)
     let readyPickup1 = new Date(readyPickup)
-
       if (startCook === null || readyPickup === null){
       const orderMessage = $('<p>')
       .text(`Waiting for your order to be accepted by the restaurant`);
       $order_message.prepend(orderMessage);
-    } else if (currentTime1 >= readyPickup1) {
+    } else if (currentTime1.getTime() > readyPickup1.getTime()) {
       const orderMessage = $('<p>')
       .text('Your order is ready for pickup!');
       $order_message.prepend(orderMessage);
