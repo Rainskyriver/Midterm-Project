@@ -6,10 +6,10 @@ $(()=> {
       latestOrder = data.orders[data.orders.length - 1];
       const startTime = latestOrder.start_time;
       const endTime = latestOrder.end_time;
-      drawOrderStatus(startTime, endTime);
+      drawOrderStatus(startTime, endTime, latestOrder);
     })
   });
-  const drawOrderStatus = function(startCook, readyPickup) {
+  const drawOrderStatus = function(startCook, readyPickup, order) {
     let today = new Date();
     //Conditionals for the minutes and seconds
     let fMin = '';
@@ -24,7 +24,11 @@ $(()=> {
     //CREATE new DATES FOR COMPARISON
     let currentTime1 = new Date(currentTime)
     let readyPickup1 = new Date(readyPickup)
-      if (startCook === null || readyPickup === null){
+      if (order.active === false) {
+        const orderMessage = $('<p>')
+        .text(`You do not have an active order`);
+        $order_message.prepend(orderMessage);
+      } else if (startCook === null|| readyPickup === null){
       const orderMessage = $('<p>')
       .text(`Waiting for your order to be accepted by the restaurant`);
       $order_message.prepend(orderMessage);

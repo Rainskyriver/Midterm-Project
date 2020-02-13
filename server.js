@@ -44,10 +44,22 @@ app.use("/api/order_items", order_itemsRoutes(db));
 
 app.post('/sms', (req, res) => {
   const twiml = new MessagingResponse();
+  let today = new Date();
   //RESPONSE FROM RESTAURANT
   textMessage = req.body.Body;
+  if (textMessage === 'Complete') {
+    db.query(`
+    UPDATE orders
+    SET active='false'
+    WHERE id=(SELECT id FROM orders
+      ORDER BY id DESC LIMIT 1)
+    `);
+    res.writeHead(200, {'Content-Type': 'text/xml'});
+    res.end(twiml.toString());
+  } else {
+
+
   //CREATE NEW DATES && CHECK FOR >59 to rollover hours
-  let today = new Date();
   let timezone = 0;
   let readyMinutes = today.getMinutes() + Number(textMessage);
   if (readyMinutes > 59) {
@@ -68,7 +80,7 @@ app.post('/sms', (req, res) => {
   Successfully sent order to customer!`);
   res.writeHead(200, {'Content-Type': 'text/xml'});
   res.end(twiml.toString());
-});
+}});
 //render index
 app.get("/", (req, res) => {
   const templateVars = {

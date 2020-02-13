@@ -4,7 +4,7 @@ $mcdonalds-red: rgb(233, 60, 60);
 footer{
     position:fixed;
     width:100%;
-    background: rgb(251,179,63);
+    background: $mcdonalds-red;
     background: radial-gradient(circle, rgba(251,179,63,1) 0%, rgba(255,0,0,1) 100%);
     bottom:0;
     display:grid;

@@ -5,5 +5,6 @@ CREATE TABLE orders (
   order_time timestamptz DEFAULT current_timestamp,
   start_time timestamptz,
   end_time timestamptz,
-  user_id INTEGER REFERENCES users(id)
+  user_id INTEGER REFERENCES users(id),
+  active BOOLEAN DEFAULT TRUE
 );
