@@ -22,12 +22,8 @@ footer{
 }
 
 #footer-track-button {
-    width:5vw;
-    height:5vh;
     grid-column-start: 10;
-    // margin-right:4vw;
-    // padding-top:1.75vh;
-    padding-right:1.2vw;
+    // padding-right:1.2vw;
     background-color:transparent;
     border:0;
     font-size:1.25em;
@@ -45,3 +41,10 @@ footer{
         transform:translateY(-10px);
         }
 }
+
+// @media only screen and (min-width: 1000px) {
+//     footer{
+//         height:7vh;
+//     }
+
+//   }
