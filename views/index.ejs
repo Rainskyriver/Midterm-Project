@@ -22,14 +22,15 @@
       <button type="button" id="header-track-button"></button> -->
     <div class="logout-button-div">
       <% if (!(user)) {%>
-      <form action="/api/login" method="POST">
-        <button type="submit" class="btn btn-danger log-button">Login</button>
-      </form>
-      <%} else {%>
-      <form action="/api/logout" method="POST">
-        <button type="submit" class="btn btn-danger log-button">Logout</button>
-      </form>
-    </div>
+        <form action="/api/login" method="POST">
+          <button type="submit" class="btn btn-danger log-button">Login</button>
+        </form>
+        <%} else {%>
+          <form action="/api/logout" method="POST">
+            <button type="submit" class="btn btn-danger log-button">Logout</button>
+          </form>
+        </div>
+        <p id="user-name">User: Bob Loblaw</p>
       <% } %>
 
     </header>

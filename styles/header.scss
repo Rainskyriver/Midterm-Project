@@ -30,6 +30,17 @@ header {
     }
     .logout-button-div {
         grid-column-start: 5;
+        padding-left:15px;
+    }
+    #user-name {
+      color: yellow;
+      font-family:'Righteous', 'cursive';
+      text-shadow:2px 2px $mcdonalds-red;
+      font-weight:600;
+      grid-column-start: 4;
+      grid-row-start:1;
+      font-size: 1.5em;
+      padding-top:15px;
     }
     .log-button {
       background-color: $mcdonalds-red;
