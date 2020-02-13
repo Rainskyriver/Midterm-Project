@@ -104,7 +104,7 @@ app.post('/api/checkout', (req , res) => {
       INSERT INTO order_items (user_id, item_id, order_id, quantity)
       VALUES('${req.session.userID}',(SELECT id FROM items WHERE name = '${items.name}'),(select id FROM orders ORDER BY id DESC LIMIT 1),${items.quantity} ) RETURNING *
     `)
-    .then(data => res.redirect('/'))
+    .then((data) => res.redirect('/'))
   }
   //Construct message to send to restaurant
   let orderMessage = '';
@@ -115,11 +115,11 @@ app.post('/api/checkout', (req , res) => {
   }
   orderMessage += `Total : ${total}$`;
   //Send Message to Restaurant on Checkout
-  // sendMessage('2506824529', `-
-  // New Order
-  // ---------------\n${orderMessage}
-  // ---------------\n
-  // Please respond with how long the order will take to fulfill`);
+  sendMessage('2506824529', `-
+  New Order
+  ---------------\n${orderMessage}
+  ---------------\n
+  Please respond with how long the order will take to fulfill`);
 })
 app.get('*', (req, res) => {
   res.send(404)
