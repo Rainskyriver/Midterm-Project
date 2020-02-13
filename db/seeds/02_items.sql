@@ -5,5 +5,5 @@ INSERT INTO items (price, calories, name, picture)VALUES
 (5.99, 698, 'DacShake', '/images/dacMonaldsMilkshake.png'),
 (13.99, 999, 'DacDouble', '/images/burger-two.jpg'),
 (14.99, 1299, 'DacNuggets', '/images/nuggets.jpg'),
-(1.99, 299, 'Dac Soda', '/images/soda.jpg');
+(1.99, 299, 'Soda', '/images/soda.jpg');
 -- ();
