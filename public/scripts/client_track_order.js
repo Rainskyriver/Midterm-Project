@@ -2,7 +2,7 @@ $(()=> {
   let order = '';
   let today = new Date();
   console.log(today);
-  let currentTime = `${today.getFullYear()}-0${today.getMonth()+1}-${today.getDate()}T${today.getHours()}:${today.getMinutes()}:${today.getSeconds()}.000Z`;
+  let currentTime = `${today.getFullYear()}-0${today.getMonth()+1}-${today.getDate()}T${today.getHours()}:${today.getMinutes()}:${today.getSeconds()}.000UTC`;
   console.log(currentTime, 'top')
 
   $('#order_div').on('click', '.track-order-button', event => {
@@ -19,6 +19,7 @@ $(()=> {
       drawOrderStatus(startTime, endTime);
     })
   });
+
 
   // $('#footer-track-button').click(function(event) {
   //   event.preventDefault();
@@ -60,21 +61,21 @@ $(()=> {
     const orderStatus = getHourMinutes(readyPickup);
     //CREATE new DATES FOR COMPARISON
     console.log(currentTime)
-    let currentTime1 = new Date(currentTime)
-    console.log(currentTime1)
-    console.log(readyPickup, "bot")
 
     let readyPickup1 = new Date(readyPickup)
-    console.log(readyPickup1)
+    console.log(readyPickup, "bot", readyPickup1)
 
- console.log(currentTime1 > readyPickup1)    
+    console.log(readyPickup1)    
+    console.log(currentTime)    
+
+ console.log(currentTime > readyPickup)    
 
       if (startCook === null || readyPickup === null){
       const orderMessage = $('<p>')
       .text(`Waiting for your order to be accepted by the restaurant`);
       $order_message.prepend(orderMessage);
 
-    } else if (currentTime1 >= readyPickup1) {
+    } else if (currentTime >= readyPickup) {
       const orderMessage = $('<p>')
       .text('Your order is ready for pickup!');
       $order_message.prepend(orderMessage);

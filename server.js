@@ -54,8 +54,8 @@ app.post('/sms', (req, res) => {
     timezone-=1;
     readyMinutes-=60;
   }
-  let start_time = `${today.getFullYear()}-${today.getMonth()+1}-${today.getDate()}T${today.getHours()}:${today.getMinutes()}:${today.getSeconds()}.000`;
-  let end_time = `${today.getFullYear()}-${today.getMonth()+1}-${today.getDate()}T${today.getHours()}:${readyMinutes}:${today.getSeconds()}.000`;
+  let start_time = `${today.getFullYear()}-${today.getMonth()+1}-${today.getDate()}T${today.getHours()-8}:${today.getMinutes()}:${today.getSeconds()}.000UTC`;
+  let end_time = `${today.getFullYear()}-${today.getMonth()+1}-${today.getDate()}T${today.getHours()-timezone}:${readyMinutes}:${today.getSeconds()}.000UTC`;
   //ADD STARTTIME/ENDTIME TO ORDERS TABLE FROM HERE.
   db.query(`
   UPDATE orders
@@ -93,10 +93,11 @@ app.post('/api/checkout', (req , res) => {
   var time = (today.getHours()) + ":" + today.getMinutes() + ":" + today.getSeconds();
   var dateTime = date+' '+time;
   //ADD NEW ORDER
+  console.log(dateTime)
   const shoppingCart = req.body.shoppingCartArray
   db.query(`
-    INSERT INTO orders (order_time, user_id, active)
-    VALUES ('${dateTime}',${req.session.userID},'true') RETURNING *;
+    INSERT INTO orders (order_time, user_id)
+    VALUES ('${dateTime}',${req.session.userID}) RETURNING *;
   `)
 
   for (const items of shoppingCart) {
@@ -114,37 +115,13 @@ app.post('/api/checkout', (req , res) => {
     total += item.price * item.quantity;
   }
   orderMessage += `Total : ${total}$`;
-
   // Send Message to Restaurant on Checkout
-  
   sendMessage('6046187907', `-
   New Order
   ---------------\n${orderMessage}
   ---------------\n
   Please respond with how long the order will take to fulfill`);
 })
-//set active state to an order
-app.get('/api/active', (req, res) => {
-  db.query(`
-    SELECT active, start_time, end_time FROM orders
-    ORDER BY id DESC
-    LIMIT 1
-  `)
-  .then(data => {
-    let active = data.rows;
-    res.json(active);
-  })
-});
-//set false state to an order
-app.post('/api/deactivate', (req, res) => {
-  db.query(`
-     UPDATE orders SET active = false WHERE active is true
-  `)
-  .then(data => {
-    res.json(data.rows)
-  })
-})
-
 app.get('*', (req, res) => {
   res.send(404)
   res.redirect('/')
