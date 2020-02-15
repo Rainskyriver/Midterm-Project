@@ -127,7 +127,7 @@ app.post('/api/checkout', (req , res) => {
   }
   orderMessage += `Total : ${total}$`;
   //Send Message to Restaurant on Checkout
-  sendMessage('2506824529', `-
+  sendMessage('6046187907', `-
   New Order
   ---------------\n${orderMessage}
   ---------------\n

@@ -24,6 +24,7 @@ $(()=> {
     //CREATE new DATES FOR COMPARISON
     let currentTime1 = new Date(currentTime)
     let readyPickup1 = new Date(readyPickup)
+
       if (order.active === false) {
         const orderMessage = $('<p>')
         .text(`You do not have an active order`);
